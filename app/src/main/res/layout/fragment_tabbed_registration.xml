@@ -1,0 +1,286 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="com.example.rathin.testing.tabbed_attendance$tabbed_activity"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/imageView7"
+                android:background="@drawable/ddbtext"
+                android:layout_height="80dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:fillViewport="false">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/curved_linear"
+                android:gravity="center"
+                android:layout_margin="5dp">
+
+
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/background_light"
+                    android:layout_margin="15dp">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TableRow android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp">
+
+                                <TextView
+                                    android:text="Name"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/tvName"
+                                    android:textSize="20sp"
+                                    android:layout_width="90dp"
+                                    android:layout_gravity="center_vertical" />
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPersonName"
+                                    android:id="@+id/etName"
+                                    android:layout_weight="0.43"
+                                    android:ems="8"
+                                    android:hint="@string/name_hint"
+                                    android:scrollbars="horizontal"
+                                    android:layout_gravity="center_vertical" />
+
+                            </LinearLayout>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/background_light"
+                                android:forceHasOverlappingRendering="true">
+
+                                <TextView
+                                    android:text="Email"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/tvEmail"
+                                    android:textSize="20sp"
+                                    android:layout_width="90dp" />
+
+                                <AutoCompleteTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/etEmail"
+                                    android:hint="@string/email_hint"
+                                    android:textColorLink="?attr/colorPrimary"
+                                    android:ems="8" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="33dp"
+                                    app:srcCompat="@drawable/ic_email_black_12dp"
+                                    android:id="@+id/imageView"
+                                    android:layout_marginRight="1dp"
+                                    android:forceHasOverlappingRendering="false"
+                                    android:textAlignment="textStart"
+                                    android:layout_gravity="center_vertical"
+                                    android:paddingLeft="10dp" />
+
+                            </LinearLayout>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp">
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp">
+
+                                <TextView
+                                    android:text="Password"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/tvPassword"
+                                    android:textSize="20sp"
+                                    android:layout_width="90dp" />
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPassword"
+                                    android:ems="8"
+                                    android:id="@+id/etPassword"
+                                    android:hint="@string/password_hint"
+                                    android:textColorLink="?attr/colorPrimary"
+                                    android:layout_gravity="center_vertical" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    app:srcCompat="@drawable/ic_lock_black_24dp"
+                                    android:id="@+id/ivPassword"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="1"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_height="33dp" />
+
+                            </LinearLayout>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp">
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:weightSum="1">
+
+                                <TextView
+                                    android:text="Confirm Password"
+                                    android:id="@+id/tvPasswordConfirm"
+                                    android:textSize="20sp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_gravity="center"
+                                    android:layout_width="90dp" />
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPassword"
+                                    android:ems="8"
+                                    android:id="@+id/etPasswordConfirm"
+                                    android:hint="@string/password_hint"
+                                    android:textColorLink="?attr/colorPrimary"
+                                    android:layout_gravity="center_vertical" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    app:srcCompat="@drawable/ic_visibility_black_18dp"
+                                    android:id="@+id/ivPassVisible"
+                                    android:layout_gravity="center_vertical"
+                                    android:clickable="true"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_height="33dp" />
+
+                            </LinearLayout>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp">
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:text="Mobile No"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/tvMobile"
+                                    android:textSize="20sp"
+                                    android:layout_width="90dp"
+                                    android:layout_marginBottom="5dp" />
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:ems="8"
+                                    android:id="@+id/etMobile"
+                                    android:hint="@string/mobile_hint"
+                                    android:layout_gravity="center_vertical" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    app:srcCompat="@drawable/ic_phone_black_18dp"
+                                    android:id="@+id/imageView6"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_height="33dp" />
+
+                            </LinearLayout>
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp">
+
+                        <Button
+                            android:text="Register"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btRegister"
+                            android:background="@drawable/curved_linear"
+                            android:textColor="#ffff" />
+                    </RelativeLayout>
+                    <com.digits.sdk.android.DigitsAuthButton
+                        android:id="@+id/auth_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

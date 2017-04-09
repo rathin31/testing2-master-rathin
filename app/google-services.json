@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "801606693129",
+    "firebase_url": "https://testing-9f5eb.firebaseio.com",
+    "project_id": "testing-9f5eb",
+    "storage_bucket": "testing-9f5eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801606693129:android:2fbaab471c5c7d42",
+        "android_client_info": {
+          "package_name": "com.example.rathin.testing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801606693129-mml39306l9tgi9chibrt38f42g3fef03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7NMlU70rC89EjEkXxP3O-UUttK4DOG8E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

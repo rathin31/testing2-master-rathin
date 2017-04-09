@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/Emp_details"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_Employee_Details"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="Employee Details" />
+    </group>
+
+    <group
+        android:id="@+id/Credit"
+        android:checkableBehavior="none">
+        <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="credits" />
+    </group>
+</menu>

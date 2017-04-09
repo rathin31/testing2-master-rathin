@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:title="Laptop" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:title="Mobile" />
+
+    </group>
+
+    <item android:title="Summer">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="Air conditioner" />
+            <item
+                android:id="@+id/nav_send"
+                android:title="Refrigerator" />
+        </menu>
+    </item>
+
+</menu>

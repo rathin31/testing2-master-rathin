@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.rathin.testing.tabbed_attendance$tabbed_activity"
+    android:padding="0dp"
+    android:background="#ffff">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/imageView2"
+            android:layout_centerInParent="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/ddbtext"
+            android:layout_height="80dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:background="@drawable/curved_linear"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="40dp"
+                    android:background="@android:color/background_light">
+
+                    <TextView
+                        android:text="Email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvEmail"
+                        android:textSize="25sp"
+                        android:textColor="@android:color/black" />
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/actvEmail"
+                        android:drawableLeft="@drawable/ic_email_black_24dp"
+                        android:hint="@string/email_hint"
+                        android:textColorLink="?attr/colorPrimary" />
+
+                    <TextView
+                        android:text="Password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvPassword"
+                        android:textSize="25sp"
+                        android:textColor="@android:color/black" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:ems="10"
+                            android:id="@+id/etPassword"
+                            android:drawableLeft="@drawable/ic_lock_black_24dp"
+                            android:hint="@string/password_hint"
+                            android:textColorLink="?attr/colorPrimary"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="33dp"
+                            app:srcCompat="@drawable/ic_visibility_black_18dp"
+                            android:id="@+id/iv_password_show"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:clickable="true" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:text="Forgot Password?"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvForgot"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:clickable="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_gravity="right" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp">
+
+                        <Button
+                            android:text="@string/action_sign_in_short"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btSignIn"
+                            android:background="@drawable/curved_linear"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@android:color/white"
+                            android:onClick="redirect" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</RelativeLayout>

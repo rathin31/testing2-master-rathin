@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"मुख्यपृष्ठ पर नेविगेट करें"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"ऊपर नेविगेट करें"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"अधिक विकल्प"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"पूर्ण"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"सभी देखें"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"कोई एप्‍लिकेशन चुनें"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"बंद"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"चालू"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"खोजा जा रहा है…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"क्‍वेरी साफ़ करें"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"खोज क्वेरी"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"खोजें"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"क्वेरी सबमिट करें"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"ध्वनि खोज"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"इसके द्वारा साझा करें"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"%s के साथ साझा करें"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"संक्षिप्त करें"</string>
+    <string msgid="5835639618285370804" name="accept">"स्वीकार करें"</string>
+    <string msgid="4778414446709286370" name="cast_ad_label">"विज्ञापन"</string>
+    <string msgid="366047012176970604" name="cast_casting_to_device">"%s पर कास्ट किया जा रहा है"</string>
+    <string msgid="2888745622334830481" name="cast_closed_captions">"बंद कैप्‍शन"</string>
+    <string msgid="4476421850100851087" name="cast_closed_captions_unavailable">"बंद कैप्शन उपलब्ध नहीं हैं"</string>
+    <string msgid="4431992200264667209" name="cast_disconnect">"डिस्कनेक्ट करें"</string>
+    <string msgid="5668979866539349222" name="cast_expanded_controller_ad_image_description">"कास्ट प्राप्तकर्ता द्वारा विज्ञापन चलाए जाने के दौरान दिखाया जाने वाला चित्र"</string>
+    <string msgid="9069517964239146855" name="cast_expanded_controller_ad_in_progress">"विज्ञापन चल रहा है…"</string>
+    <string msgid="8886260998635257149" name="cast_expanded_controller_background_image">"एल्बम आर्ट"</string>
+    <string msgid="1316611227831672183" name="cast_expanded_controller_live_stream_indicator">"लाइव स्ट्रीम"</string>
+    <string msgid="7334411994450681286" name="cast_expanded_controller_loading">"लोड हो रहा है…"</string>
+    <string msgid="8399595886048969508" name="cast_expanded_controller_skip_ad_label">"अभी नहीं"</string>
+    <string msgid="7884080323096468593" name="cast_forward">"आगे बढ़ाएं"</string>
+    <string msgid="6424889955881797947" name="cast_forward_10">"दस सेकंड आगे बढ़ाएं"</string>
+    <string msgid="7868672855975238403" name="cast_forward_30">"तीस सेकंड आगे बढ़ाएं"</string>
+    <string msgid="6885943100773268783" name="cast_intro_overlay_button_text">"@android:string/ok"</string>
+    <string msgid="5637297909372905371" name="cast_mute">"म्यूट करें"</string>
+    <string msgid="5319032370587661362" name="cast_notification_connected_message">"<ns1:g id="NAME">%1$s</ns1:g> से कनेक्ट है"</string>
+    <string msgid="2758865089947797888" name="cast_notification_connecting_message">"<ns1:g id="NAME">%1$s</ns1:g> से कनेक्ट हो रहा है"</string>
+    <string msgid="5232008641593292969" name="cast_notification_disconnect">"डिस्कनेक्ट करें"</string>
+    <string msgid="5308503786390460607" name="cast_pause">"रोकें"</string>
+    <string msgid="5906987965619702702" name="cast_play">"चलाएं"</string>
+    <string msgid="1739665135565985480" name="cast_rewind">"रिवाइंड करें"</string>
+    <string msgid="6432793028560778843" name="cast_rewind_10">"दस सेकंड रिवाइंड करें"</string>
+    <string msgid="4677199707225681325" name="cast_rewind_30">"तीस सेकंड रिवाइंड करें"</string>
+    <string msgid="9078075166993780241" name="cast_seek_bar">"प्लेबैक आगे-पीछे ले जाने का नियंत्रण"</string>
+    <string msgid="3991548379225047363" name="cast_skip_next">"अगले आइटम पर जाएं"</string>
+    <string msgid="8369073097776576935" name="cast_skip_prev">"पिछले आइटम पर जाएं"</string>
+    <string msgid="9191388946729723891" name="cast_stop">"रोकें"</string>
+    <string msgid="1219622777438777099" name="cast_stop_live_stream">"लाइव स्ट्रीम बंद करें"</string>
+    <string msgid="4250321332248956563" name="cast_tracks_chooser_dialog_audio">"ऑडियो"</string>
+    <string msgid="1162380934229249476" name="cast_tracks_chooser_dialog_cancel">"अभी नहीं"</string>
+    <string msgid="1779359505126875127" name="cast_tracks_chooser_dialog_closed_captions">"बंद कैप्शन"</string>
+    <string msgid="3012268736704635952" name="cast_tracks_chooser_dialog_default_track_name">"ट्रैक <ns1:g id="POSITION">%1$d</ns1:g>"</string>
+    <string msgid="5563446400083425854" name="cast_tracks_chooser_dialog_no_audio_tracks">"कोई भी ऑडियो ट्रैक उपलब्ध नहीं है"</string>
+    <string msgid="7413336699113748535" name="cast_tracks_chooser_dialog_no_text_tracks">"कोई भी लेख ट्रैक उपलब्ध नहीं है"</string>
+    <string msgid="1176688358580178396" name="cast_tracks_chooser_dialog_none">"कोई नहीं"</string>
+    <string msgid="3804878371876790270" name="cast_tracks_chooser_dialog_ok">"ठीक"</string>
+    <string msgid="2454147715032376208" name="cast_tracks_chooser_dialog_subtitles">"उपशीर्षक"</string>
+    <string msgid="2913461521603516868" name="cast_unmute">"अनम्यूट करें"</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"सक्षम करें"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> तब तक कार्य नहीं करेगा जब तक आप Google Play सेवाओं को सक्षम नहीं करते."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play सेवाएं सक्षम करना"</string>
+    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"इंस्टॉल करें"</string>
+    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> उन Google Play सेवाओं के बिना नहीं चलेगा जो आपके डिवाइस में उपलब्ध नहीं हैं."</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"Google Play सेवाएं प्राप्त करना"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"Google Play सेवाएं त्रुटि"</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> को Google Play सेवाओं के साथ समस्या आ रही है. कृपया फिर से प्रयास करें."</string>
+    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> उन Google Play सेवाओं के बिना नहीं चलेगा, जो आपके डिवाइस द्वारा समर्थित नहीं हैं."</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"अपडेट करें"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> तब तक नहीं चलेगा जब तक आप Google Play सेवाओं को अपडेट नहीं करते."</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"Google Play सेवाओं को अपडेट करें"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> उन Google Play सेवाओं के बिना नहीं चलेगा जो वर्तमान में अपडेट हो रही हैं."</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"Google Play सेवाओं के नए वर्शन की आवश्यकता है. यह स्वयं को जल्दी ही अपडेट करेगा."</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"फ़ोन पर खोलें"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"प्रवेश करें"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Google के साथ प्रवेश करें"</string>
+    <string msgid="6155048007205742679" name="create_calendar_message">"विज्ञापन को कैलेंडर इवेंट बनाने की अनुमति दें?"</string>
+    <string msgid="7967007864778154790" name="create_calendar_title">"कैलेंडर इवेंट बनाएं"</string>
+    <string msgid="4722375419392727435" name="debug_menu_ad_information">"विज्ञापन की जानकारी"</string>
+    <string msgid="1605938743055376690" name="debug_menu_creative_preview">"क्रिएटिव पूर्वावलोकन"</string>
+    <string msgid="2039274714455389140" name="debug_menu_title">"कोई डीबग मोड चुनें"</string>
+    <string msgid="1173358804935285568" name="debug_menu_troubleshooting">"समस्या निवारण करना"</string>
+    <string msgid="6099173376375995052" name="decline">"अस्वीकार करें"</string>
+    <string name="dgts__call_me">कॉल करें</string>
+    <string name="dgts__calling">कॉल किया जा रहा है…</string>
+    <string name="dgts__confirmation_code">पुष्टिकरण कोड</string>
+    <string name="dgts__confirmation_edit_hint">हमारे द्वारा आपको भेजा गया 6 अंको का कोड दर्ज करें</string>
+    <string name="dgts__confirmation_error">आपके फ़ोन नंबर की पुष्टि करने में असमर्थ</string>
+    <string name="dgts__confirmation_error_alternative">क्षमा करें, हमें आपको एक पुष्टिकरण कोड भेजने में परेशानी हो रही है.</string>
+    <string name="dgts__continue">जारी रखें</string>
+    <string name="dgts__create_account">खाता बनाएं</string>
+    <string name="dgts__digits_logo_desc">डिजिट्स लोगो आइकन</string>
+    <string name="dgts__digits_logo_name_desc">डिजिट्स लोगो नाम</string>
+    <string name="dgts__dismiss">बर्खास्त करें</string>
+    <string name="dgts__done">पूर्ण</string>
+    <string name="dgts__email_request_edit_hint">ईमेल पता</string>
+    <string name="dgts__email_request_title">ईमेल पता दर्ज करें</string>
+    <string name="dgts__find_your_friends">अपने मित्रों को खोजें</string>
+    <string name="dgts__image_header_description">लॉगिन के लिए इमेज हैडर</string>
+    <string name="dgts__invalid_email">अमान्य ईमेल. फिर से कोशिश करें</string>
+    <string name="dgts__invite_no_session_warning">Digits चेतावनी: कोई सक्रिय सत्र नहीं मिला. मैच करने वाले संपर्क प्राप्त करने, invitedPhoneNumbers संग्रहित/पुनः प्राप्त करने के लिए एक सक्रिय सत्र आवश्यक है. पूर्ण अनुभव के लिए उपयोगकर्ता को लॉग इन करें.</string>
+    <string name="dgts__invite_post">आमंत्रित</string>
+    <string name="dgts__invite_pre">आमंत्रित करें</string>
+    <string name="dgts__invite_sms">नमस्कार %1$s. मैं %2$s का उपयोग कर रहा हूँ - मुझे ज्वॉइन करें!</string>
+    <string name="dgts__invite_to_appname">%1$s में आमंत्रित करें</string>
+    <string name="dgts__login_digits_text">मेरा फ़ोन नंबर इस्तेमाल करें</string>
+    <string name="dgts__network_error">कृपया अपने नेटवर्क की जांच करें और फिर कोशिश करें.</string>
+    <string name="dgts__not_now">अभी नहीं</string>
+    <string name="dgts__okay">ठीक है</string>
+    <string name="dgts__phone_number_edit_hint">आपका नंबर</string>
+    <string name="dgts__phone_number_text">अपना फ़ोन नंबर दर्ज करें</string>
+    <string name="dgts__pin_code_verification_title">2-चरणीय सत्यापन कोड दर्ज करें</string>
+    <string name="dgts__resend_confirmation_button_code">कोड पुनः भेजें</string>
+    <string name="dgts__send_confirmation_code">पुष्टिकरण कोड भेजें</string>
+    <string name="dgts__sending">भेजा जा रहा है…</string>
+    <string name="dgts__success_desc">सफलता चिह्न</string>
+    <string name="dgts__terms_email_request">ऊपर %1$sजारी रखें%1$s टैप करके, आप इस ईमेल को अपने डिजिट खाते से जोड़ेंगे. इसके साथ आप अपनी सहमति भी देते हैं कि यह एप्प एवं %7$s वो सभी एप्स जो आपके डिजिट अकाउंट में सूचीबद्ध हैं%5$s, आपके इस ईमेल को देख सकते हैं तथा उनके उपयोगकर्ता आपको ईमेल से खोज सकते हैं.</string>
+    <string name="dgts__terms_text">ऊपर %1$sपुष्टिकरण कोड भेजें%1$s टैप करने से, %6$sDigits by Twitter%5$s, आपके फ़ोन नंबर की पुष्टि करने के लिए आपको एक एस.एम.एस भेजेंगे. इसके बाद की स्क्रीन पर, आप नये एस.एम.एस. के लिये \"कोड दोबारा भेजें\" या फिर फ़ोन कॉल के लिए \"कॉल करें\" चुन सकते हैं ताकी आपके फ़ोन नंबर की पुष्टि हो सके. संदेश और डेटा दरें लागू हो सकती है.</string>
+    <string name="dgts__terms_text_call_me">ऊपर %1$sमुझे कॉल करें%1$s पर टैप करने से, %6$sDigits by Twitter%5$s आपके फ़ोन नंबर की पुष्टि करने के लिए आपको वॉयस कॉल करेंगे. कॉल और डेटा दरें लागू हो सकती हैं.</string>
+    <string name="dgts__terms_text_create">ऊपर %1$sखाता बनायें%1$s पर टैप करके, आप %6$sDigits by Twitter%5$s की %8$sसेवा की शर्तों%5$s, %9$sगोपनीयता नीति%5$s, और %10$sकुकीज़ नीति%5$s से सहमत होते हैं, और इससे भी कि आपका फ़ोन नंबर %4$s से शेयर होगा एवं %4$s के अन्य उपयोगकर्ता फ़ोन नंबर के द्वारा आपको खोज सकते हैं.</string>
+    <string name="dgts__terms_text_sign_in">ऊपर %1$sजारी रखें%1$s पर टैप करके, आप इससे सहमत होते हैं कि आपका %7$s डिजिट फ़ोन नंबर और/या ईमेल%5$s,  %4$s से शेयर होगा एवं %4$s के अन्य उपयोगकर्ता फ़ोन नंबर और/या ईमेल के द्वारा आपको खोज सकते हैं.</string>
+    <string name="dgts__terms_text_updated">ऊपर %1$sजारी रखें%1$s पर टैप करके, आप %6$sDigits by Twitter%5$s की %8$sसेवा की शर्तों%5$s, %9$sगोपनीयता नीति%5$s, और %10$sकुकीज़ नीति%5$s से सहमत होते हैं, और इससे भी कि आपका %7$s  फ़ोन नंबर और/या ईमेल%5$s,  %4$s से शेयर होगा एवं %4$s के अन्य उपयोगकर्ता फ़ोन नंबर और/या ईमेल के द्वारा आपको खोज सकते हैं.</string>
+    <string name="dgts__try_again">फिर से कोशिश करें</string>
+    <string name="dgts__try_again_confirmation">कृपया अपने कोड की जांच करें और फिर कोशिश करें.</string>
+    <string name="dgts__try_again_email">कृपया अपने ईमेल की जांच करें और फिर कोशिश करें.</string>
+    <string name="dgts__try_again_phone_number">कृपया अपने नंबर की जांच करें और फिर कोशिश करें.</string>
+    <string name="dgts__try_another_phone">एक अलग फ़ोन नंबर आजमाएं</string>
+    <string name="dgts__unsupported_operator_error">इस नंबर पर SMS संदेश भेजने में असमर्थ.</string>
+    <string name="dgts__upload_contacts">इस एप्प का इस्तेमाल करने वाले आपके मित्रों को ढूंढने के लिए हम ट्विटर के डिजिट्स का इस्तेमाल करेंगे. जब आप ठीक है को दबाएंगे, तब हम ट्विटर के डिजिट्स पर आपकी पता पुस्तिका को अपलोड करेंगे ताकि हम आपको %1$s के आपके परिचित उपयोगकर्ताओं को खोजने में मदद कर सके या %1$s के अन्य उपयोगकर्ताओं को आपको खोजने में मदद कर सकते हैं.</string>
+    <string name="dgts__verification_code">सत्यापन कोड</string>
+    <string name="dgts_pin_code_terms">आप पहले से digits.com पर 2-चरणीय सत्यापन कोड निर्धारित किया है</string>
+    <string msgid="3698378085901466129" name="mr_button_content_description">"कास्ट करें बटन"</string>
+    <string msgid="6349900579507521956" name="mr_chooser_searching">"डिवाइस ढूंढ रहा है"</string>
+    <string msgid="414301941546135990" name="mr_chooser_title">"इस पर कास्‍ट करें"</string>
+    <string msgid="6422801843540543585" name="mr_controller_album_art">"एल्बम आर्ट"</string>
+    <string msgid="4868457957151124867" name="mr_controller_casting_screen">"स्क्रीन कास्ट हो रही है"</string>
+    <string msgid="7333862312480583260" name="mr_controller_close_description">"बंद करें"</string>
+    <string msgid="7924809056904240926" name="mr_controller_collapse_group">"संक्षिप्त करें"</string>
+    <string msgid="1227264889412989580" name="mr_controller_disconnect">"डिस्कनेक्ट करें"</string>
+    <string msgid="8062427022744266907" name="mr_controller_expand_group">"विस्तृत करें"</string>
+    <string msgid="5585418471741142924" name="mr_controller_no_info_available">"कोई जानकारी उपलब्‍ध नहीं"</string>
+    <string msgid="6547130360349182381" name="mr_controller_no_media_selected">"कोई मीडिया चयनित नहीं है"</string>
+    <string msgid="5451884435510905406" name="mr_controller_pause">"रोकें"</string>
+    <string msgid="683634565969987458" name="mr_controller_play">"चलाएं"</string>
+    <string msgid="4570331844078181931" name="mr_controller_stop">"कास्ट करना बंद करें"</string>
+    <string msgid="5441529851481176817" name="mr_system_route_name">"सिस्टम"</string>
+    <string msgid="7498112907524977311" name="mr_user_route_category_name">"डिवाइस"</string>
+    <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"खोज साफ़ करें"</string>
+    <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"खोजें"</string>
+    <string msgid="146198913615257606" name="search_menu_title">"खोज"</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="8020323581538738027" name="store_picture_message">"विज्ञापन को चित्र गैलरी में चित्र सहेजने की अनुमति दें?"</string>
+    <string msgid="4180630057627064606" name="store_picture_title">"चित्र सहेजें"</string>
+    <string name="tw__allow_btn_txt">अनुमति दें</string>
+    <string name="tw__login_btn_txt">ट्विटर के साथ लॉगइन करें</string>
+    <string name="tw__not_now_btn_txt">अभी नहीं</string>
+    <string name="tw__share_email_desc">%1$s को अपने ट्विटर खाते \@%2$s से संबंधित ईमेल पते का उपयोग करने की अनुमति दें ताकि %1$s उसका गोपनीयता नीति के अनुसार इस्तेमाल कर सके. उदाहरण के लिए, %1$s उस पते पर आपको अपडेट और अन्य जानकारी भेज सकते हैं.</string>
+    <string name="tw__share_email_title">अपना ईमेल पता साझा करें</string>
+    <string msgid="363496807345461806" name="wallet_buy_button_place_holder">"Google से खरीदें"</string>
+</resources>

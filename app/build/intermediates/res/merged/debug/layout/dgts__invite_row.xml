@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:digits="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/dgts__invite_display_name"
+        style="@style/dgts__DisplayName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dgts__invite_section_header"
+        android:layout_toLeftOf="@+id/dgts__action"
+        android:layout_alignParentLeft="true"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        tools:ignore="UnknownIdInLayout"/>
+    <TextView
+        android:id="@+id/dgts__invite_phone_number"
+        style="@style/dgts__DisplayPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dgts__invite_display_name"
+        android:layout_toLeftOf="@+id/dgts__action"
+        android:layout_alignParentLeft="true"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:gravity="center_vertical"/>
+
+    <com.digits.sdk.android.internal.StateButton
+        android:id="@+id/dgts__action"
+        style="@style/dgts__InviteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/tw__login_btn_height"
+        android:layout_below="@+id/dgts__invite_section_header"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        tools:ignore="UnknownIdInLayout"/>
+</RelativeLayout>
