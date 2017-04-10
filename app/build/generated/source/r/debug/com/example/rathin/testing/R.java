@@ -4917,10 +4917,8 @@ containing a value of this type.
         public static final int end_text=0x7f110131;
         public static final int enterAlways=0x7f11002f;
         public static final int enterAlwaysCollapsed=0x7f110030;
-        public static final int et1=0x7f1100fc;
+        public static final int et1=0x7f1100f8;
         public static final int et2=0x7f1100f7;
-        public static final int et3=0x7f1100fa;
-        public static final int et4=0x7f1100fb;
         public static final int et5=0x7f1100fe;
         public static final int etDestination=0x7f110103;
         public static final int etEmail=0x7f11011d;
@@ -4931,7 +4929,9 @@ containing a value of this type.
         public static final int etPasswordConfirm=0x7f110194;
         public static final int et_cp=0x7f110112;
         public static final int et_discount=0x7f110118;
+        public static final int et_email=0x7f1100fb;
         public static final int et_mrp=0x7f110113;
+        public static final int et_phone=0x7f1100fc;
         public static final int et_profit=0x7f110117;
         public static final int et_sold=0x7f110114;
         public static final int et_sp=0x7f110111;
@@ -4977,8 +4977,8 @@ containing a value of this type.
         public static final int item_touch_helper_previous_elevation=0x7f110013;
         public static final int ivPassVisible=0x7f110195;
         public static final int ivPassword=0x7f110192;
-        public static final int iv_edit_mail=0x7f1100f8;
-        public static final int iv_edit_phone=0x7f1100f9;
+        public static final int iv_edit_mail=0x7f1100f9;
+        public static final int iv_edit_phone=0x7f1100fa;
         public static final int iv_password_show=0x7f11018a;
         public static final int largeLabel=0x7f110153;
         public static final int large_icon_uri=0x7f110056;

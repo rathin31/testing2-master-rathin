@@ -1542,10 +1542,8 @@ int id end_padder 0x7f1101c7
 int id end_text 0x7f110131
 int id enterAlways 0x7f11002f
 int id enterAlwaysCollapsed 0x7f110030
-int id et1 0x7f1100fc
+int id et1 0x7f1100f8
 int id et2 0x7f1100f7
-int id et3 0x7f1100fa
-int id et4 0x7f1100fb
 int id et5 0x7f1100fe
 int id etDestination 0x7f110103
 int id etEmail 0x7f11011d
@@ -1556,7 +1554,9 @@ int id etPassword 0x7f110189
 int id etPasswordConfirm 0x7f110194
 int id et_cp 0x7f110112
 int id et_discount 0x7f110118
+int id et_email 0x7f1100fb
 int id et_mrp 0x7f110113
+int id et_phone 0x7f1100fc
 int id et_profit 0x7f110117
 int id et_sold 0x7f110114
 int id et_sp 0x7f110111
@@ -1602,8 +1602,8 @@ int id intent_extra_data 0x7f110055
 int id item_touch_helper_previous_elevation 0x7f110013
 int id ivPassVisible 0x7f110195
 int id ivPassword 0x7f110192
-int id iv_edit_mail 0x7f1100f8
-int id iv_edit_phone 0x7f1100f9
+int id iv_edit_mail 0x7f1100f9
+int id iv_edit_phone 0x7f1100fa
 int id iv_password_show 0x7f11018a
 int id largeLabel 0x7f110153
 int id large_icon_uri 0x7f110056

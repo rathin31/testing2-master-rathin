@@ -1,7 +1,7 @@
-#Sun Apr 09 11:01:34 IST 2017
-base.0=C\:\\Users\\rathi\\Documents\\Nisarg\\testing2-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_9616d0e83fbad08fed6b8e37a1af73dbc27fbbae
+#Mon Apr 10 16:06:07 IST 2017
+base.0=C\:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_52eac600250d3ff3e4a9345acf19f5aed92fd03c
 renamed.1=classes2.dex
 renamed.0=classes.dex
-file.1=C\:\\Users\\rathi\\Documents\\Nisarg\\testing2-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_fd19ecbda4b81f713d5eda3a613e3cceda0afba1\\classes.dex
-base.1=C\:\\Users\\rathi\\Documents\\Nisarg\\testing2-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_fd19ecbda4b81f713d5eda3a613e3cceda0afba1
-file.0=C\:\\Users\\rathi\\Documents\\Nisarg\\testing2-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_9616d0e83fbad08fed6b8e37a1af73dbc27fbbae\\classes.dex
+file.1=C\:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_09099908a00b64129024618503f3e9a39523205f\\classes.dex
+base.1=C\:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_09099908a00b64129024618503f3e9a39523205f
+file.0=C\:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_52eac600250d3ff3e4a9345acf19f5aed92fd03c\\classes.dex
