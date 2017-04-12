@@ -121,7 +121,7 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
             Toast.makeText(getContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
             return;
         }
-         if (!(confirm.equals(password))) {
+        if (!(confirm.equals(password))) {
             etPasswordConfirm.setError("Must be same as the password given above");
 
         }
@@ -159,9 +159,19 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                                 String email = etEmail.getText().toString().trim();
                                 String password = etPassword.getText().toString().trim();
                                 String number = etMobile.getText().toString().trim();
+                                EncryptPassword enc_pass = new EncryptPassword();
+                                try {
+                                    password = enc_pass.SHA1Hash(password);
+                                } catch (NoSuchAlgorithmException e) {
+                                    e.printStackTrace();
+                                } catch (UnsupportedEncodingException e) {
+                                    e.printStackTrace();
+                                }
                                 UserInformation userInformation = new UserInformation(name, email, password, number);
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                                mFirebaseDatabase.child(user.getUid()).setValue(userInformation);
+                                String result = email.replaceAll("[-_$.:,/]","");
+
+                                mFirebaseDatabase.child(result).setValue(userInformation);
                                 etName.setText("");
                                 etEmail.setText("");
                                 etPasswordConfirm.setText("");
@@ -191,7 +201,7 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                             if (task.isSuccessful()) {
                                 Toast.makeText(getActivity(),"Verify your E-mail", Toast.LENGTH_SHORT).show();
                             }
-                           else if(!task.isSuccessful())
+                            else if(!task.isSuccessful())
                             {
                                 Toast.makeText(getActivity(),"Do again", Toast.LENGTH_SHORT).show();
 
