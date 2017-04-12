@@ -106,7 +106,6 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.example.rathin.testing.credits" />
-        <activity android:name="com.example.rathin.testing.LocCordinate" />
         <activity
             android:name="com.digits.sdk.android.PhoneNumberActivity"
             android:configChanges="orientation|screenSize"

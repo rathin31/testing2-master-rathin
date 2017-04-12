@@ -1,10 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\interpolator\\mr_fast_out_slow_in.xml",
-        "source": "C:\\Users\\rathi\\.android\\build-cache\\4a8333c9e11c3e87304618c913b1e8c847f9ce18\\output\\res\\interpolator\\mr_fast_out_slow_in.xml"
+        "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\interpolator\\mr_linear_out_slow_in.xml",
+        "source": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\d975104fb1b2b6352d676ada3af5531f606f8770\\output\\res\\interpolator\\mr_linear_out_slow_in.xml"
     },
     {
-        "merged": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\interpolator\\mr_linear_out_slow_in.xml",
-        "source": "C:\\Users\\rathi\\.android\\build-cache\\4a8333c9e11c3e87304618c913b1e8c847f9ce18\\output\\res\\interpolator\\mr_linear_out_slow_in.xml"
+        "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\interpolator\\mr_fast_out_slow_in.xml",
+        "source": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\d975104fb1b2b6352d676ada3af5531f606f8770\\output\\res\\interpolator\\mr_fast_out_slow_in.xml"
     }
 ]

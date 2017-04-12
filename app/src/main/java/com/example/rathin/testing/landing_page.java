@@ -123,7 +123,7 @@ public class landing_page extends AppCompatActivity  implements NavigationView.O
         }
         if(v== cvLocation)
         {
-            Intent loc = new Intent(landing_page.this,LocCordinate.class);
+            Intent loc = new Intent(landing_page.this,MapsActivity.class);
             startActivity(loc);
         }
         if(v== cvCompTrack)

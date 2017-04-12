@@ -82,7 +82,6 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".credits"/>
-        <activity android:name=".LocCordinate"></activity>
     </application>
 
 </manifest>

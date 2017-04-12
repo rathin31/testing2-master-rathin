@@ -29,6 +29,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class NewSales extends AppCompatActivity implements TextWatcher, View.OnClickListener {
     Spinner spinner_item,spinner_models;
     protected EditText et_cp,et_sp,et_sold,et_profit, et_mrp,et_discount;
@@ -174,10 +177,13 @@ public class NewSales extends AppCompatActivity implements TextWatcher, View.OnC
         String MRP=et_mrp.getText().toString().trim();
         String Disc=et_discount.getText().toString().trim();
         FirebaseUser user = firebaseAuth.getCurrentUser();
+
         String Email=user.getEmail();
         SalesDetails salesDetails = new SalesDetails(CostPrice,SellingPrice,UnitsSold,Profit,MRP,Disc,Email);
-
-        mFirebaseDatabase.child(user.getUid()).setValue(salesDetails);
+        String timeStamp = new SimpleDateFormat("/dd_MM_yy  /hh:mm:ss a").format(new Date());
+        String result = Email.replaceAll("[-_$.:,/]","");
+        String Finalstr= result+timeStamp;
+        mFirebaseDatabase.child(Finalstr).setValue(salesDetails);
         progressDialog.dismiss();
         Toast.makeText(this, "Your data is Stored", Toast.LENGTH_SHORT).show();
 

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+        "outputFile": "D:\\testing2-master-rathin\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 119
                 },
                 "from": {
-                    "file": "C:\\Users\\rathi\\.android\\build-cache\\4a8333c9e11c3e87304618c913b1e8c847f9ce18\\output\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+                    "file": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\d975104fb1b2b6352d676ada3af5531f606f8770\\output\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 188
                 },
                 "from": {
-                    "file": "C:\\Users\\rathi\\.android\\build-cache\\4a8333c9e11c3e87304618c913b1e8c847f9ce18\\output\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+                    "file": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\d975104fb1b2b6352d676ada3af5531f606f8770\\output\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 264
                 },
                 "from": {
-                    "file": "C:\\Users\\rathi\\.android\\build-cache\\f59f3c6c7295db64ac1fd27f241dded6958cac2f\\output\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+                    "file": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\be0069ab9b19e83dd4b511bf2c0386e9925cbf07\\output\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

@@ -1,26 +1,26 @@
 [
     {
-        "merged": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_attendance_tabbed.xml",
-        "source": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\src\\main\\res\\menu\\menu_attendance_tabbed.xml"
+        "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_attendance_tabbed.xml",
+        "source": "D:\\testing2-master-rathin\\app\\src\\main\\res\\menu\\menu_attendance_tabbed.xml"
     },
     {
-        "merged": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\sales_stock.xml",
-        "source": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\src\\main\\res\\menu\\sales_stock.xml"
+        "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_tabbed_activity.xml",
+        "source": "D:\\testing2-master-rathin\\app\\src\\main\\res\\menu\\menu_tabbed_activity.xml"
     },
     {
-        "merged": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_landing_page_drawer.xml",
-        "source": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\src\\main\\res\\menu\\activity_landing_page_drawer.xml"
+        "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\sales_stock.xml",
+        "source": "D:\\testing2-master-rathin\\app\\src\\main\\res\\menu\\sales_stock.xml"
     },
     {
-        "merged": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_sales_stock_nav_drawer.xml",
-        "source": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\src\\main\\res\\menu\\activity_sales_stock_nav_drawer.xml"
+        "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_sales_stock_nav_drawer.xml",
+        "source": "D:\\testing2-master-rathin\\app\\src\\main\\res\\menu\\activity_sales_stock_nav_drawer.xml"
     },
     {
-        "merged": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_tabbed_activity.xml",
-        "source": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\src\\main\\res\\menu\\menu_tabbed_activity.xml"
+        "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\sales_stock_nav.xml",
+        "source": "D:\\testing2-master-rathin\\app\\src\\main\\res\\menu\\sales_stock_nav.xml"
     },
     {
-        "merged": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\sales_stock_nav.xml",
-        "source": "C:\\Users\\rathi\\Documents\\Nisarg\\testing2-master-rathin\\app\\src\\main\\res\\menu\\sales_stock_nav.xml"
+        "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_landing_page_drawer.xml",
+        "source": "D:\\testing2-master-rathin\\app\\src\\main\\res\\menu\\activity_landing_page_drawer.xml"
     }
 ]

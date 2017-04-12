@@ -1,51 +1,35 @@
 package com.example.rathin.testing;
-
-import android.app.Fragment;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.hardware.camera2.CameraAccessException;
+import android.graphics.Matrix;
 import android.net.Uri;
-import android.os.Environment;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-
-//import com.google.firebase.auth;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.google.firebase.auth.FirebaseAuth;
-import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
-
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
-import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
-import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
 
 public class fragment_attendance_take extends android.support.v4.app.Fragment implements View.OnClickListener {
     public String path = "sdcard/camera_app/";
@@ -59,7 +43,7 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
     static final int CAM_REQUEST = 1;
     private static final int CAMERA_REQUEST_CODE = 1;
     private ProgressDialog progressDialog;
-
+    private FirebaseAuth firebaseAuth;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -69,8 +53,6 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
         storage = FirebaseStorage.getInstance().getReference();
         btCamera.setOnClickListener(this);
         progressDialog = new ProgressDialog(getActivity());
-
-
         return rootView;
 
     }
@@ -105,11 +87,18 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 Bitmap bitmap = BitmapFactory.decodeFile(path, options);
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+
+
+                bitmap.compress(Bitmap.CompressFormat.JPEG,12, baos);
                 byte[] bytedata = baos.toByteArray();
 
-                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new     Date());
-                String imageFileName = "JPEG_" + timeStamp + "_";
+
+
+                firebaseAuth =FirebaseAuth.getInstance();
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                String Email=user.getEmail();
+                String timeStamp = new SimpleDateFormat("/dd-MM-yy_HH:mm:ss a").format(new     Date());
+                String imageFileName = Email + timeStamp ;
                 StorageReference mountainsRef = storage.child(imageFileName+".jpg");
                 UploadTask uploadTask = mountainsRef.putBytes(bytedata);
                 uploadTask.addOnFailureListener(new OnFailureListener() {
@@ -165,5 +154,4 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
         filename = "cam_image.jpg" + ts;
         return image_file;
     }
-
 }
