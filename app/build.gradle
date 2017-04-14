@@ -12,6 +12,7 @@ apply plugin: 'io.fabric'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
+    maven { url "https://jitpack.io" }
 }
 
 
@@ -26,6 +27,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
+        multiDexEnabled true
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -71,6 +73,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.firebase:firebase-client-android:2.4.0'
     compile 'com.google.android.gms:play-services-maps:10.2.0'
+    compile 'com.github.npanigrahy:Custom-Calendar-View:v1.1'
     testCompile 'junit:junit:4.12'
 }
 

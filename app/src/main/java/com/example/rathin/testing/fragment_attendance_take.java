@@ -1,49 +1,89 @@
 package com.example.rathin.testing;
+
+import android.app.Activity;
+import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.hardware.camera2.CameraAccessException;
 import android.net.Uri;
-import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
+
+//import com.google.firebase.auth;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.android.gms.vision.text.Text;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
+import com.stacktips.view.CustomCalendarView;
+import com.stacktips.view.DayDecorator;
+import com.stacktips.view.DayView;
+import com.stacktips.view.utils.CalendarUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.MODE_PRIVATE;
+import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
+import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
 
 public class fragment_attendance_take extends android.support.v4.app.Fragment implements View.OnClickListener {
-    public String path = "sdcard/camera_app/";
-    public String filename = "cam_image.jpg";
+
     private String selectedImagePath;
     private static final String URI = "uri";
     private Button btCamera;
     private ImageView mImageView;
     Uri uri;
+    private FirebaseAuth firebaseAuth;
     private StorageReference storage;
     static final int CAM_REQUEST = 1;
     private static final int CAMERA_REQUEST_CODE = 1;
     private ProgressDialog progressDialog;
-    private FirebaseAuth firebaseAuth;
+
+    public String path = "sdcard/camera_app/";
+    public String filename = "cam_image.jpg";
+    public CustomCalendarView cv;
+    public Bitmap bitmap;
+    public TextView temp;
+    int count=1;
+
+    SharedPreferences sp;
+    SharedPreferences.Editor editor;
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,25 +93,28 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
         storage = FirebaseStorage.getInstance().getReference();
         btCamera.setOnClickListener(this);
         progressDialog = new ProgressDialog(getActivity());
+        temp= (TextView) rootView.findViewById(R.id.temp);
+        sp = getContext().getSharedPreferences("mypref",MODE_PRIVATE);
+        editor= sp.edit();
         return rootView;
-
     }
 
     public void onClick(View v) {
-        Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        File file = getFile();
-        //FileProvider.getUriForFile(getActivity(), getActivity().getApplicationContext().getPackageName() + ".provider", file);
-        try {
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M){
-                camera_intent.putExtra(MediaStore.EXTRA_OUTPUT,FileProvider.getUriForFile(getActivity(), "com.example.rathin.testing.fileprovider", file));
-            } else{
-                camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+            Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            File file = getFile();
+            //FileProvider.getUriForFile(getActivity(), getActivity().getApplicationContext().getPackageName() + ".provider", file);
+            try {
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getActivity(), "com.example.rathin.testing.fileprovider", file));
+                } else {
+                    camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+                }
+
+                startActivityForResult(camera_intent, CAM_REQUEST);
+            } catch (Exception e) {
+                Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
             }
 
-            startActivityForResult(camera_intent, CAM_REQUEST);
-        } catch (Exception e) {
-            Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
-        }
     }
 
     @Override
@@ -85,7 +128,7 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                 String path = selectedImagePath+"/" + filename;
                 Log.d(URI,path + " URI");
                 BitmapFactory.Options options = new BitmapFactory.Options();
-                Bitmap bitmap = BitmapFactory.decodeFile(path, options);
+                bitmap = BitmapFactory.decodeFile(path, options);
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
 
@@ -111,7 +154,15 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                         Uri downloadUrl = taskSnapshot.getDownloadUrl();
                         progressDialog.dismiss();
                         Toast.makeText(getActivity(), "Your attendance is taken..", Toast.LENGTH_SHORT).show();
-
+                        if(count<3) {
+                            count++;
+                            editor.putInt("ImageCount", count);
+                            editor.commit();
+                        }else{
+                            btCamera.setEnabled(false);
+                            btCamera.setClickable(false);
+                            Toast.makeText(getActivity(),"3 images of the day have already been taken. Thank you!",Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
                 // mImageView.setImageBitmap(bitmap);
