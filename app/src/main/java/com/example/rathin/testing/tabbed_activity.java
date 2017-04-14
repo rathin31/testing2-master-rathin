@@ -18,7 +18,7 @@ import com.twitter.sdk.android.core.TwitterCore;
 
 import io.fabric.sdk.android.Fabric;
 
-public class tabbed_activity extends AppCompatActivity {
+public class tabbed_activity extends AppCompatActivity{
 
     private static final String TWITTER_KEY = "VuTkuz81xzWfbE4p1rRjbRaKw";
     private static final String TWITTER_SECRET = "z2jY5rUjZUKzJIC4jK7SNVoVEM8qbPJtVcBCBjoFfMil8wKKt7";
@@ -90,3 +90,4 @@ public class tabbed_activity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 }
+
