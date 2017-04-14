@@ -179,7 +179,7 @@ public class NewSales extends AppCompatActivity implements TextWatcher, View.OnC
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         String Email=user.getEmail();
-        SalesDetails salesDetails = new SalesDetails(CostPrice,SellingPrice,UnitsSold,Profit,MRP,Disc,Email);
+        SalesDetails salesDetails = new SalesDetails(CostPrice,SellingPrice,UnitsSold,Profit,MRP,Disc);
         String timeStamp = new SimpleDateFormat("/dd_MM_yy  /hh:mm:ss a").format(new Date());
         String result = Email.replaceAll("[-_$.:,/]","");
         String Finalstr= result+timeStamp;

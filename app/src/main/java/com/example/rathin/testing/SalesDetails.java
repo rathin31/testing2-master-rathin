@@ -9,16 +9,14 @@ public class SalesDetails
     public String Profit;
     public String MRP;
     public String Disc;
-    public String Email;
 
-    public SalesDetails(String CostPrice,String SellingPrice,String UnitsSold, String Profit,String MRP,String Disc,String Email) {
+    public SalesDetails(String CostPrice,String SellingPrice,String UnitsSold, String Profit,String MRP,String Disc) {
         this.CostPrice = CostPrice;
         this.SellingPrice = SellingPrice;
         this.UnitsSold=UnitsSold;
         this.Profit=Profit;
         this.MRP=MRP;
         this.Disc=Disc;
-        this.Email=Email;
     }
 
 

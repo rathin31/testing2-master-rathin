@@ -1,15 +1,23 @@
 package com.example.rathin.testing;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.View;
 
 import com.digits.sdk.android.Digits;
 import com.example.rathin.testing.R;
@@ -17,13 +25,16 @@ import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 
 import io.fabric.sdk.android.Fabric;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.CAMERA;
 
-public class tabbed_activity extends AppCompatActivity {
+public class tabbed_activity extends AppCompatActivity   {
 
     private static final String TWITTER_KEY = "VuTkuz81xzWfbE4p1rRjbRaKw";
     private static final String TWITTER_SECRET = "z2jY5rUjZUKzJIC4jK7SNVoVEM8qbPJtVcBCBjoFfMil8wKKt7";
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+
 
 
     @Override
@@ -88,5 +99,10 @@ public class tabbed_activity extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onKeyDown(keyCode, event);
+
     }
+
+
+
+
 }
