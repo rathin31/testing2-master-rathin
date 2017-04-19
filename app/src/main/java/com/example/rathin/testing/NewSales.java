@@ -176,8 +176,8 @@ public class NewSales extends AppCompatActivity implements TextWatcher, View.OnC
         String Profit= et_profit.getText().toString().trim();
         String MRP=et_mrp.getText().toString().trim();
         String Disc=et_discount.getText().toString().trim();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
+        FirebaseUser user = firebaseAuth.getCurrentUser();
         String Email=user.getEmail();
         SalesDetails salesDetails = new SalesDetails(CostPrice,SellingPrice,UnitsSold,Profit,MRP,Disc);
         String timeStamp = new SimpleDateFormat("/dd_MM_yy  /hh:mm:ss a").format(new Date());

@@ -16,7 +16,4 @@ public class UserInformation
         this.password=password;
 
     }
-
-
-
 }

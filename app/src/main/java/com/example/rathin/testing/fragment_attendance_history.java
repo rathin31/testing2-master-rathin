@@ -16,6 +16,10 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.text.Text;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.stacktips.view.CustomCalendarView;
 import com.stacktips.view.DayDecorator;
 import com.stacktips.view.DayView;
@@ -42,6 +46,10 @@ public class fragment_attendance_history extends Fragment{
     SharedPreferences sp;
 
 
+    private DatabaseReference mFirebaseDatabase;
+    private FirebaseDatabase mFirebaseInstance;
+    private FirebaseAuth firebaseAuth;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_attendance_history, container, false);
@@ -49,6 +57,10 @@ public class fragment_attendance_history extends Fragment{
         currentCalendar = Calendar.getInstance(Locale.getDefault());
         tv = (TextView) rootView.findViewById(R.id.section_label);
         sp = getContext().getSharedPreferences("mypref",MODE_PRIVATE);
+        firebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference();
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        mFirebaseDatabase = mFirebaseInstance.getReference("Attendance");
         return rootView;
     }
 
@@ -94,6 +106,18 @@ public class fragment_attendance_history extends Fragment{
             if(year==cur_year && month==cur_month && day==cur_day) {
                 if(photo_flag) {
                     color = Color.parseColor("#00E676");
+
+
+                    String photoflag="Completed";
+                    String timeStamp1 = new SimpleDateFormat("/MM/dd-yy_HH:mm:ss a").format(new Date());
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    String Email=user.getEmail();
+                    String result = Email.replaceAll("[-_$.:,/]","");
+                    String finalPhotoFlag= result+timeStamp1+" "+ "True";
+                    Attendance attendance=new Attendance(photoflag);
+                    mFirebaseDatabase.child(finalPhotoFlag).setValue(attendance);
+
+
                 }else{
                     color = Color.parseColor("#EF5350");
                 }

@@ -50,8 +50,7 @@
             android:name="com.example.rathin.testing.tabbed_attendance$tabbed_activity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.rathin.testing.tabbed_attendance"
             android:label="@string/title_activity_attendance_tabbed"

@@ -252,12 +252,12 @@
         "source": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\26a51b2b866ccc798f9748701891a0e2b20f066c\\output\\res\\drawable-xxhdpi-v4\\ic_plusone_tall_off_client.png"
     },
     {
-        "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\dgts__spinner_dark.png",
-        "source": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\ea4d7bd6bcf66cc6f0a43e19c5e98b00ed8caefd\\output\\res\\drawable-xxhdpi-v4\\dgts__spinner_dark.png"
-    },
-    {
         "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_media_route_connecting_13_dark.png",
         "source": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\d975104fb1b2b6352d676ada3af5531f606f8770\\output\\res\\drawable-xxhdpi-v4\\ic_media_route_connecting_13_dark.png"
+    },
+    {
+        "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\dgts__spinner_dark.png",
+        "source": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\ea4d7bd6bcf66cc6f0a43e19c5e98b00ed8caefd\\output\\res\\drawable-xxhdpi-v4\\dgts__spinner_dark.png"
     },
     {
         "merged": "D:\\testing2-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\cast_ic_notification_2.png",
