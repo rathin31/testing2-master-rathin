@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/FFMS-master-rathin.iml" filepath="$PROJECT_DIR$/FFMS-master-rathin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testing2-master-rathin.iml" filepath="$PROJECT_DIR$/testing2-master-rathin.iml" />
     </modules>
   </component>
 </project>
