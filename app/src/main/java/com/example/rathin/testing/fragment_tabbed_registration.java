@@ -2,19 +2,16 @@ package com.example.rathin.testing;
 
 
 import android.app.ProgressDialog;
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.digits.sdk.android.AuthCallback;
@@ -22,7 +19,6 @@ import com.digits.sdk.android.DigitsAuthButton;
 import com.digits.sdk.android.DigitsException;
 import com.digits.sdk.android.DigitsSession;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,8 +29,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
-import static com.example.rathin.testing.R.id.etPasswordConfirm;
-
 
 public class fragment_tabbed_registration extends Fragment implements View.OnClickListener{
 
@@ -44,7 +38,6 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
 
 
     private DatabaseReference mFirebaseDatabase;
-    private FirebaseDatabase mFirebaseInstance;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -52,9 +45,7 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_tabbed_registration, container, false);
         firebaseAuth =FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference();
-        mFirebaseInstance = FirebaseDatabase.getInstance();
-        mFirebaseDatabase = mFirebaseInstance.getReference("Registration");
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("Registration");
         etPassword = (EditText) rootView.findViewById(R.id.etPassword);
         etName = (EditText) rootView.findViewById(R.id.etName);
         etMobile = (EditText) rootView.findViewById(R.id.etMobile);

@@ -124,8 +124,10 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
     public void onMonthChanged(Date date) {
 
     }
+
+
     /*ColorDecorator is the method which modifies the background color of dates, although it'snot the only thing it can do.*/
-    public class ColorDecorator implements DayDecorator {
+    public class ColorDecorator implements DayDecorator, com.google.firebase.database.ValueEventListener {
         @Override
         public void decorate(DayView dayView) {
             int color;
@@ -136,18 +138,8 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
 
             //Get time from Firebase server
             mTimeRef.child("Time").setValue(ServerValue.TIMESTAMP);
-            mTimeRef.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
-                @Override
-                public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
-                    map = (Map<String,Object>) dataSnapshot.getValue();
-                    serverTime = (long) map.get("Time");
-                }
+            mTimeRef.addValueEventListener(this);
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
             String timestamp2 = new SimpleDateFormat("yyyy-mm-dd").format(serverTime);
             String parts[]= timeStamp.split("-");
             String parts2[]= timestamp2.split("-");
@@ -167,6 +159,17 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
                 }
                 dayView.setBackgroundColor(color);
             }
+        }
+
+        @Override
+        public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
+            map = (Map<String,Object>) dataSnapshot.getValue();
+            serverTime = (long) map.get("Time");
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
         }
     }
 }

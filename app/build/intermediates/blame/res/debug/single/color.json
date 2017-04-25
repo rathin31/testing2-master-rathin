@@ -32,12 +32,12 @@
         "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\color\\abc_search_url_text.xml"
     },
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
-    },
-    {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\color\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_secondary_text_holo_dark.xml",

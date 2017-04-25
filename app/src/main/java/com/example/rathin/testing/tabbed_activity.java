@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 
 import com.digits.sdk.android.Digits;
-import com.example.rathin.testing.R;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterCore;
 
@@ -24,6 +23,7 @@ public class tabbed_activity extends AppCompatActivity{
     private static final String TWITTER_SECRET = "z2jY5rUjZUKzJIC4jK7SNVoVEM8qbPJtVcBCBjoFfMil8wKKt7";
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+
 
 
     @Override
