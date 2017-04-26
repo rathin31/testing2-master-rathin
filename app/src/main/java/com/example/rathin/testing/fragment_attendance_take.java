@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -15,6 +16,7 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -43,6 +45,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
+import static android.R.attr.rotation;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
@@ -158,8 +161,8 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                          dayNext.set(Calendar.MILLISECOND,0);
                          String t1 = new SimpleDateFormat("dd-MM-yy HH:mm:ss").format(dayNext.getTime());
                          Log.v("t1",t1);
-                         String t2 =  new SimpleDateFormat("dd-MM-yy HH:mm:ss").format(new Date(serverTime));
-                         Log.v("t2",t2);
+                         Log.v("serverTime",""+serverTime);
+                         Log.v("dayNaext time",""+dayNext.getTimeInMillis());
                          long timeToMidnight = dayNext.getTimeInMillis() - serverTime;
                          String tillMidnight = new SimpleDateFormat("HH:mm:ss").format(new Date(timeToMidnight));
                          Log.v("Time To Midnight",tillMidnight);
@@ -181,13 +184,10 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                          cv.setVisibility(View.VISIBLE);
                      }
              });
-
-
          }else if(v==btCancel){
              mLayout.setVisibility(View.GONE);
              cv.setVisibility(View.VISIBLE);
          }
-
     }
 
     @Override

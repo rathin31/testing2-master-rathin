@@ -1,9 +1,11 @@
 package com.example.rathin.testing;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,21 +19,32 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 import static android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS;
-import static android.view.KeyEvent.KEYCODE_BACK;
 import static android.view.inputmethod.EditorInfo.IME_ACTION_DONE;
 
 
 public class employee_details extends AppCompatActivity implements View.OnClickListener, TextView.OnEditorActionListener{
 
-    private EditText et1,et2,et3,et4,et5;
+    private EditText et_email,et_phone,et_birth,et_join;
+    TextView tv_name;
+    FirebaseAuth firebaseAuth;
+    Map<String,String> map;
     private Firebase mRef;
-    private ArrayList<String> musername;
-    private ImageView iv_edit_mail, iv_edit_phone;
+    private ImageView iv_edit_phone;
+    String uEmail;
+    ProgressDialog mProgressDialog;
+
+
+    @Override
+    protected void onResume() {
+        changeDetails();
+        super.onResume();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,36 +54,18 @@ public class employee_details extends AppCompatActivity implements View.OnClickL
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
-        et1=(EditText) findViewById(R.id.et1);
-        et3=(EditText) findViewById(R.id.et_email);
-        et4=(EditText) findViewById(R.id.et_phone);
-        et5=(EditText) findViewById(R.id.et5);
-        iv_edit_mail= (ImageView) findViewById(R.id.iv_edit_mail);
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        uEmail = user.getEmail().replaceAll("[-_$.:,/]","");
+        tv_name= (TextView) findViewById(R.id.et_employee_name);
+        et_email=(EditText) findViewById(R.id.et_email);
+        et_phone=(EditText) findViewById(R.id.et_phone);
+        et_birth= (EditText) findViewById(R.id.et_birthdate);
+        et_join = (EditText) findViewById(R.id.et_joining_date);
         iv_edit_phone = (ImageView) findViewById(R.id.iv_edit_phone);
-
         iv_edit_phone.setOnClickListener(this);
-        iv_edit_mail.setOnClickListener(this);
 
-        mRef=new Firebase("https://testing-9f5eb.firebaseio.com/Registration");
-        mRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                Map<String,String> map= dataSnapshot.getValue(Map.class);
-
-                String email=map.get("email");
-                String name=map.get("name");
-                String number=map.get("number");
-                String password=map.get("password");
-
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-
+        mRef=new Firebase("https://testing-9f5eb.firebaseio.com/Registration/"+uEmail);
     }
 
 
@@ -82,26 +77,18 @@ public class employee_details extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        if (v==iv_edit_mail){
-            et3.setImeOptions(IME_ACTION_DONE);
-            et3.setInputType(TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-            et3.setEnabled(true);
-            et3.setOnEditorActionListener(this);
-
-
-        }else if(v==iv_edit_phone){
-            et4.setImeOptions(IME_ACTION_DONE);
-            et4.setInputType(TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-            et4.setEnabled(true);
-            et4.setOnEditorActionListener(this);
+        if(v==iv_edit_phone){
+            et_phone.setImeOptions(IME_ACTION_DONE);
+            et_phone.setInputType(TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+            et_phone.setEnabled(true);
+            et_phone.setOnEditorActionListener(this);
         }
     }
 
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (actionId == EditorInfo.IME_ACTION_DONE) {
-            et3.setEnabled(false);
-            et4.setEnabled(false);
+            et_phone.setEnabled(false);
             return true;
         }else {
             return true;
@@ -124,6 +111,34 @@ public class employee_details extends AppCompatActivity implements View.OnClickL
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void changeDetails(){
+        Log.v("Status","Showing ProgressDiaglog");
+        final ProgressDialog mProgressDialog = ProgressDialog.show(employee_details.this,"","Fetching Details",false,true);
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                map= dataSnapshot.getValue(Map.class);
+                String email=map.get("email");
+                String name=map.get("name");
+                String number=map.get("number");
+                String birthdate=map.get("birthdate");
+                String joining = map.get("joiningdate");
+
+                et_email.setText(email);
+                et_phone.setText(number);
+                tv_name.setText(name);
+                et_birth.setText(birthdate);
+                et_join.setText(joining);
+                mProgressDialog.dismiss();
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
     }
 
 }

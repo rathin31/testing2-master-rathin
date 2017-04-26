@@ -61,8 +61,6 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                 //startActivity(login);
                 Toast.makeText(getContext(), "Authentication successful for "
                         + phoneNumber, Toast.LENGTH_LONG).show();
-
-
             }
 
             @Override
