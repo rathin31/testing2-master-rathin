@@ -43,12 +43,12 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
     CustomCalendarView cv;
     boolean photo_flag;
     Calendar currentCalendar;
-    String uEmail;
+    String uEmail,timeStamp;
     ViewGroup.LayoutParams param;
     LinearLayout mLayout;
 
     FirebaseAuth firebaseAuth;
-    Firebase mRef;
+    Firebase mRef,mFirebaseDatabase;
     DatabaseReference mTimeRef;
     Map<String,Object> map;
     long serverTime;
@@ -68,6 +68,7 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
         sp = getContext().getSharedPreferences("mypref",MODE_PRIVATE);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = new Firebase("https://testing-9f5eb.firebaseio.com/Attendance");
         FirebaseUser user = firebaseAuth.getCurrentUser();
         uEmail=user.getEmail();
         uEmail = uEmail.replaceAll("[-_$.,]","");
@@ -162,10 +163,15 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
 
             //if calendar's today's date is same as system's today's date, change the color.
             if(year==cur_year && month==cur_month && day==cur_day) {
+                String timeStamp1 = new SimpleDateFormat("/MM/dd-yy").format(serverTime);
                 if(photo_flag) {
                     color = Color.parseColor("#00E676");
+                    mFirebaseDatabase.child(uEmail+timeStamp1).setValue(true);
+
                 }else{
                     color = Color.parseColor("#EF5350");
+                    mFirebaseDatabase.child(uEmail+timeStamp1).setValue(false);
+
                 }
                 dayView.setBackgroundColor(color);
             }

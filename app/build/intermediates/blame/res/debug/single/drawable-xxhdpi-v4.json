@@ -28,16 +28,16 @@
         "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\drawable-xxhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_cast_light.png",
-        "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\drawable-xxhdpi-v4\\ic_cast_light.png"
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_media_route_connecting_17_dark.png",
         "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\drawable-xxhdpi-v4\\ic_media_route_connecting_17_dark.png"
     },
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
-        "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_cast_light.png",
+        "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\drawable-xxhdpi-v4\\ic_cast_light.png"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\quantum_ic_skip_previous_white_36.png",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\drawable-xxhdpi-v4\\ic_media_route_on_14_light.png"
     },
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_media_route_connecting_13_light.png",
-        "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\drawable-xxhdpi-v4\\ic_media_route_connecting_13_light.png"
-    },
-    {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\quantum_ic_pause_grey600_36.png",
         "source": "C:\\Users\\HP\\.android\\build-cache\\f673d06a7115a548556597bad17054fee0b7fdf9\\output\\res\\drawable-xxhdpi-v4\\quantum_ic_pause_grey600_36.png"
+    },
+    {
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_media_route_connecting_13_light.png",
+        "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\drawable-xxhdpi-v4\\ic_media_route_connecting_13_light.png"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
@@ -224,12 +224,12 @@
         "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\drawable-xxhdpi-v4\\ic_cast_grey.png"
     },
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\places_ic_clear.png",
-        "source": "C:\\Users\\HP\\.android\\build-cache\\d9d16d4e11b82a7c037ef018a641e1a03453c459\\output\\res\\drawable-xxhdpi-v4\\places_ic_clear.png"
-    },
-    {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_media_route_on_04_light.png",
         "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\drawable-xxhdpi-v4\\ic_media_route_on_04_light.png"
+    },
+    {
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\places_ic_clear.png",
+        "source": "C:\\Users\\HP\\.android\\build-cache\\d9d16d4e11b82a7c037ef018a641e1a03453c459\\output\\res\\drawable-xxhdpi-v4\\places_ic_clear.png"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\powered_by_google_light.png",

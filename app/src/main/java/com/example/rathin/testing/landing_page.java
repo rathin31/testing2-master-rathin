@@ -91,7 +91,6 @@ public class landing_page extends AppCompatActivity  implements NavigationView.O
         return super.onKeyDown(keyCode, event);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -100,7 +99,9 @@ public class landing_page extends AppCompatActivity  implements NavigationView.O
         if (id == R.id.nav_Employee_Details) {
             Intent i = new Intent(getApplication(), employee_details.class);
             startActivity(i);
-        } else {
+        } else if (id==R.id.nav_credits){
+            Intent i = new Intent(getApplication(),credits.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -118,7 +119,7 @@ public class landing_page extends AppCompatActivity  implements NavigationView.O
 
         if(v== cvSales)
         {
-            Intent asd = new Intent(landing_page.this,NewSales.class);
+            Intent asd = new Intent(landing_page.this,SaleStock.class);
             startActivity(asd);
         }
         if(v== cvLocation)

@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,7 +15,6 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -44,8 +42,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
-import static android.R.attr.rotation;
+import static android.R.attr.data;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
@@ -71,6 +72,7 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
     public String filename = "cam_image.jpg";
     public Bitmap bitmap;
     public byte[] bytedata;
+    private TimerTask ResetParam;
     Map<String,Object> map;
     long serverTime;
     String Email;
@@ -164,11 +166,25 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                          Log.v("serverTime",""+serverTime);
                          Log.v("dayNaext time",""+dayNext.getTimeInMillis());
                          long timeToMidnight = dayNext.getTimeInMillis() - serverTime;
-                         String tillMidnight = new SimpleDateFormat("HH:mm:ss").format(new Date(timeToMidnight));
-                         Log.v("Time To Midnight",tillMidnight);
+                         String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(timeToMidnight),
+                                 TimeUnit.MILLISECONDS.toMinutes(timeToMidnight) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(timeToMidnight)),
+                                 TimeUnit.MILLISECONDS.toSeconds(timeToMidnight) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(timeToMidnight)));
+                         Log.v("Time To Midnight",hms);
                          editor.putBoolean("camera_enabled",false);
                          editor.commit();
-                         Toast.makeText(getActivity(),"3 images taken",Toast.LENGTH_SHORT).show();
+                         Toast.makeText(getActivity(),"3 images taken. Time till attendance is enabled again: "+hms,Toast.LENGTH_LONG).show();
+                         Timer resetTimer = new Timer();
+                         ResetParam= new TimerTask() {
+                             @Override
+                             public void run() {
+                                 count=1;
+                                 editor.putBoolean("camera_enabled",true);
+                                 editor.putInt("ImageCount",1);
+                                 editor.commit();
+                             }
+                         };
+                         resetTimer.schedule(ResetParam,timeToMidnight);
+
                      }
                  }
              }).addOnFailureListener(new OnFailureListener() {
@@ -271,4 +287,5 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
     public void onCancelled(DatabaseError databaseError) {
 
     }
+
 }

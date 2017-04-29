@@ -48,17 +48,17 @@ public final class R {
     }
     public static final class id {
         public static final int height = 0x7f110093;
-        public static final int imageView = 0x7f11019e;
-        public static final int tw__allow_btn = 0x7f1101e1;
-        public static final int tw__not_now_btn = 0x7f1101e0;
-        public static final int tw__share_email_desc = 0x7f1101df;
-        public static final int tw__spinner = 0x7f1101de;
-        public static final int tw__web_view = 0x7f1101dd;
+        public static final int imageView = 0x7f11019d;
+        public static final int tw__allow_btn = 0x7f1101e0;
+        public static final int tw__not_now_btn = 0x7f1101df;
+        public static final int tw__share_email_desc = 0x7f1101de;
+        public static final int tw__spinner = 0x7f1101dd;
+        public static final int tw__web_view = 0x7f1101dc;
         public static final int width = 0x7f110094;
     }
     public static final class layout {
-        public static final int tw__activity_oauth = 0x7f04007a;
-        public static final int tw__activity_share_email = 0x7f04007b;
+        public static final int tw__activity_oauth = 0x7f040075;
+        public static final int tw__activity_share_email = 0x7f040076;
     }
     public static final class raw {
         public static final int tw__cacerts = 0x7f090000;

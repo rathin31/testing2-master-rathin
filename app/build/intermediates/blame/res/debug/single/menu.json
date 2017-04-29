@@ -18,9 +18,5 @@
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\sales_stock.xml",
         "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\menu\\sales_stock.xml"
-    },
-    {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_sales_stock_nav_drawer.xml",
-        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\menu\\activity_sales_stock_nav_drawer.xml"
     }
 ]

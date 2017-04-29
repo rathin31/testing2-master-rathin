@@ -22,26 +22,6 @@
         <item>Home-Appliances</item>
     </string-array>
 
-    <string-array name="mobile_brands">
-        <item>Samsung</item>
-        <item>Sony</item>
-        <item>Apple</item>
-        <item>Lenovo</item>
-        <item>Micromax</item>
-        <item>Xiomi</item>
-    </string-array>
-
-
-    <string-array name="computer_brands">
-        <item>Samsung</item>
-        <item>Apple</item>
-        <item>Lenovo</item>
-        <item>Dell</item>
-        <item>HP</item>
-        <item>Asus</item>
-        <item>Acer</item>
-    </string-array>
-
     <string name="title_activity_landing_page">landing_page</string>
     <string name="title_activity_maps">Map</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
