@@ -51,8 +51,46 @@ public class SaleStock extends AppCompatActivity implements TextWatcher, View.On
         setSupportActionBar(toolbar);
 
         spinner_item = (Spinner) findViewById(R.id.spinner_item);
+        spinner_item.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("Stats","inside OnItemSelected");
+                if (view == spinner_item) {
+                    String selected_item = spinner_item.getSelectedItem().toString();
+
+                    switch (selected_item) {
+                        case "Mobiles":
+                            modelRef = mFirebaseDatabase.child("Mobile_Models");
+                            modelRef.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for(DataSnapshot ds: dataSnapshot.getChildren()) {
+                                        item_detail.add(ds.getKey());
+                                        mobAdapter.notifyDataSetChanged();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+                            break;
+                        case "Computers":
+                            Log.v("check","inside computers");
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         spinner_models = (Spinner) findViewById(R.id.spinner_models);
         items = new ArrayList<String>();
+        item_detail = new ArrayList<String>();
 
         et_cp = (EditText) findViewById(R.id.et_cp);
         et_sp = (EditText) findViewById(R.id.et_sp);
@@ -67,14 +105,24 @@ public class SaleStock extends AppCompatActivity implements TextWatcher, View.On
         et_sold.addTextChangedListener(this);
         button2.setOnClickListener(this);
 
+        final ArrayAdapter<String> itemAdapter = new ArrayAdapter<String>(SaleStock.this, android.R.layout.simple_spinner_item, items);
+        itemAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_item.setAdapter(itemAdapter);
+
+
+        mobAdapter= new ArrayAdapter<String>(SaleStock.this,android.R.layout.simple_spinner_item,item_detail);
+        mobAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_models.setAdapter(mobAdapter);
+
         firebaseAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("SaleStock");
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("SalesStock");
         itemRetrieve = mFirebaseDatabase.child("Items");
         itemRetrieve.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     items.add(ds.getKey());
+                    itemAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -84,11 +132,9 @@ public class SaleStock extends AppCompatActivity implements TextWatcher, View.On
             }
         });
 
-        ArrayAdapter<String> itemAdapter = new ArrayAdapter<String>(SaleStock.this, android.R.layout.simple_spinner_item, items);
-        itemAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_item.setAdapter(itemAdapter);
-        itemAdapter.notifyDataSetChanged();
-        spinner_item.setOnItemSelectedListener(this);
+
+
+
         spinner_models.setOnItemSelectedListener(this);
 
 
@@ -285,6 +331,7 @@ public class SaleStock extends AppCompatActivity implements TextWatcher, View.On
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
         Log.v("Status","Nothing selected yet");
     }
 }

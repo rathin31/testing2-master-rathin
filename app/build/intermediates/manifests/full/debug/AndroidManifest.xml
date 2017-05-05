@@ -108,6 +108,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.rathin.testing.SaleStock" />
+        <activity android:name="com.example.rathin.testing.LatLong" />
         <activity
             android:name="com.digits.sdk.android.PhoneNumberActivity"
             android:configChanges="orientation|screenSize"

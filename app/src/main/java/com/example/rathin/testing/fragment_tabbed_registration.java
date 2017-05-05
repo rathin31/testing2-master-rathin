@@ -1,24 +1,35 @@
+
 package com.example.rathin.testing;
 
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.ProgressDialog;
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v4.app.FragmentManager;
 
 import com.digits.sdk.android.AuthCallback;
 import com.digits.sdk.android.DigitsAuthButton;
 import com.digits.sdk.android.DigitsException;
 import com.digits.sdk.android.DigitsSession;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,30 +39,45 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+import static com.example.rathin.testing.R.id.etPasswordConfirm;
 
 
 public class fragment_tabbed_registration extends Fragment implements View.OnClickListener{
 
-    private EditText etPassword,etName,etEmail,etMobile,etPasswordConfirm;
+    private EditText etPassword,etName,etEmail,etMobile,etPasswordConfirm,editText;
     private Button btRegister;
     private ProgressDialog progressDialog;
-
-
     private DatabaseReference mFirebaseDatabase;
+    private FirebaseDatabase mFirebaseInstance;
     private FirebaseAuth firebaseAuth;
+
+    private DatePickerFragment datePickerFragment;
+    private static Calendar dateTime = Calendar.getInstance();
+    static int mYear, mMonth, mDay;
+    static EditText displayDOB;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_tabbed_registration, container, false);
         firebaseAuth =FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("Registration");
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference();
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        mFirebaseDatabase = mFirebaseInstance.getReference("Registration");
         etPassword = (EditText) rootView.findViewById(R.id.etPassword);
         etName = (EditText) rootView.findViewById(R.id.etName);
         etMobile = (EditText) rootView.findViewById(R.id.etMobile);
         etEmail = (EditText) rootView.findViewById(R.id.etEmail);
         etPasswordConfirm = (EditText) rootView.findViewById(R.id.etPasswordConfirm);
         btRegister = (Button) rootView.findViewById(R.id.btRegister);
+        displayDOB=(EditText)rootView.findViewById(R.id.displayDOB);
+        displayDOB.setOnClickListener(this);
         DigitsAuthButton digitsButton = (DigitsAuthButton) rootView.findViewById(R.id.auth_button);
         digitsButton.setCallback(new AuthCallback() {
             @Override
@@ -62,7 +88,6 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                 Toast.makeText(getContext(), "Authentication successful for "
                         + phoneNumber, Toast.LENGTH_LONG).show();
             }
-
             @Override
             public void failure(DigitsException exception) {
 
@@ -78,6 +103,28 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
         return rootView;
     }
 
+    public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener
+    {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState)
+        {
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+            return new DatePickerDialog(getActivity(), this, year,month,day);
+        }
+
+        @Override
+        public void onDateSet(DatePicker datePicker, int year, int month, int day)
+        {
+            mYear = year;
+            mMonth = month+1;
+            mDay = day;
+            dateTime.set(mYear,mMonth,mDay);
+            displayDOB.setText(day+"-"+mMonth+"-"+year);
+        }
+    }
 
 
     private void SaveInformation(){
@@ -140,6 +187,7 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                                 etPassword.setText("");
                                 etPasswordConfirm.setText("");
                                 etMobile.setText("");
+                                displayDOB.setText("");
                                 progressDialog.dismiss();
                                 Toast.makeText(getActivity(), "SignUp failed Do again", Toast.LENGTH_SHORT).show();
 
@@ -148,6 +196,7 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                                 String email = etEmail.getText().toString().trim();
                                 String password = etPassword.getText().toString().trim();
                                 String number = etMobile.getText().toString().trim();
+                                String Birthday=displayDOB.getText().toString().trim();
                                 EncryptPassword enc_pass = new EncryptPassword();
                                 try {
                                     password = enc_pass.SHA1Hash(password);
@@ -156,18 +205,15 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                                 } catch (UnsupportedEncodingException e) {
                                     e.printStackTrace();
                                 }
-                                UserInformation userInformation = new UserInformation(name, email, password, number);
-                                FirebaseUser user = firebaseAuth.getCurrentUser();
+                                String joiningdate = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+                                UserInformation userInformation = new UserInformation(name, email, password, number,joiningdate,Birthday);
                                 String result = email.replaceAll("[-_$.:,/]","");
-
                                 mFirebaseDatabase.child(result).setValue(userInformation);
                                 etName.setText("");
                                 etEmail.setText("");
                                 etPasswordConfirm.setText("");
                                 etMobile.setText("");
                                 progressDialog.dismiss();
-
-
                             }
                         }
                     });
@@ -200,16 +246,22 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
         }
 
     }
-
     @Override
     public void onClick(View v) {
-        if (v==btRegister)
-        {
+        if (v == btRegister) {
             SaveInformation();
 
 
         }
+        if(v==displayDOB) {
+            datePickerFragment = new DatePickerFragment();
+            datePickerFragment.show(getActivity().getFragmentManager(), "Select your birthdate");
+        }
+
     }
+
+
+
 
 
 }
