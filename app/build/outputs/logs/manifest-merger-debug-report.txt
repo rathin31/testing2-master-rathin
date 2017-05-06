@@ -93,10 +93,6 @@ MERGED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\HP\.andr
 MERGED from [com.google.android.gms:play-services-cast-framework:10.2.0] C:\Users\HP\.android\build-cache\f673d06a7115a548556597bad17054fee0b7fdf9\output\AndroidManifest.xml:4:5-8:19
 MERGED from [com.google.android.gms:play-services-cast:10.2.0] C:\Users\HP\.android\build-cache\4c2458eba24daa9837c7f69380af58f7a9e2f82c\output\AndroidManifest.xml:18:5-19
 MERGED from [com.android.support:mediarouter-v7:24.0.0] C:\Users\HP\.android\build-cache\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:palette-v7:24.0.0] C:\Users\HP\.android\build-cache\a865e5c9c1d1ea85a1ca4804b3d55a804a2aec17\output\AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\HP\.android\build-cache\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\HP\.android\build-cache\53b3978ae3c84d76d19778d84aa6748716538e02\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\HP\.android\build-cache\9876d5fbabe46ba5b2b6227e8d0aebf3f022c4c5\output\AndroidManifest.xml:23:5-20
 MERGED from [com.google.android.gms:play-services-clearcut:10.2.0] C:\Users\HP\.android\build-cache\e31111ec882ed5eba1d67699634b0e1a6b1f8556\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.firebase:firebase-config:10.2.0] C:\Users\HP\.android\build-cache\5142fa007e81fe8fc90c7eada8265f5462b38b22\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-awareness:10.2.0] C:\Users\HP\.android\build-cache\a07a4685ff1e32b2425bdae6eceed653feb2f17f\output\AndroidManifest.xml:18:5-19
@@ -125,6 +121,10 @@ MERGED from [com.google.android.gms:play-services-wearable:10.2.0] C:\Users\HP\.
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\HP\.android\build-cache\c5055a28f3b49c81c2d62f5cd57ec0104551e614\output\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-maps:10.2.0] C:\Users\HP\.android\build-cache\e7485434371b208aaaebf3faf2223982df3e2de2\output\AndroidManifest.xml:24:5-19
 MERGED from [com.google.android.gms:play-services-base:10.2.0] C:\Users\HP\.android\build-cache\b3003c195d320345f04028c99e30c97dd1ade929\output\AndroidManifest.xml:18:5-20:19
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\HP\.android\build-cache\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\HP\.android\build-cache\53b3978ae3c84d76d19778d84aa6748716538e02\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\HP\.android\build-cache\9876d5fbabe46ba5b2b6227e8d0aebf3f022c4c5\output\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:palette-v7:24.0.0] C:\Users\HP\.android\build-cache\a865e5c9c1d1ea85a1ca4804b3d55a804a2aec17\output\AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.firebase:firebase-core:10.2.0] C:\Users\HP\.android\build-cache\8c5335485224dc5db34cdf85e7dbcf834733bf03\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\HP\.android\build-cache\7679cb38b9bfc443a2c442ebea92e1f85e62e67e\output\AndroidManifest.xml:24:5-33:19
 MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\HP\.android\build-cache\5bdb2fe4b30fca8b3c287e655b89fcee64e3edd1\output\AndroidManifest.xml:24:5-28:19
@@ -293,10 +293,6 @@ MERGED from [com.google.android.gms:play-services-auth-base:10.2.0] C:\Users\HP\
 MERGED from [com.google.android.gms:play-services-cast-framework:10.2.0] C:\Users\HP\.android\build-cache\f673d06a7115a548556597bad17054fee0b7fdf9\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-cast:10.2.0] C:\Users\HP\.android\build-cache\4c2458eba24daa9837c7f69380af58f7a9e2f82c\output\AndroidManifest.xml:17:5-43
 MERGED from [com.android.support:mediarouter-v7:24.0.0] C:\Users\HP\.android\build-cache\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:palette-v7:24.0.0] C:\Users\HP\.android\build-cache\a865e5c9c1d1ea85a1ca4804b3d55a804a2aec17\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\HP\.android\build-cache\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\HP\.android\build-cache\53b3978ae3c84d76d19778d84aa6748716538e02\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\HP\.android\build-cache\9876d5fbabe46ba5b2b6227e8d0aebf3f022c4c5\output\AndroidManifest.xml:21:5-43
 MERGED from [com.google.android.gms:play-services-clearcut:10.2.0] C:\Users\HP\.android\build-cache\e31111ec882ed5eba1d67699634b0e1a6b1f8556\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-config:10.2.0] C:\Users\HP\.android\build-cache\5142fa007e81fe8fc90c7eada8265f5462b38b22\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-awareness:10.2.0] C:\Users\HP\.android\build-cache\a07a4685ff1e32b2425bdae6eceed653feb2f17f\output\AndroidManifest.xml:17:5-43
@@ -305,8 +301,6 @@ MERGED from [com.google.firebase:firebase-auth:10.2.0] C:\Users\HP\.android\buil
 MERGED from [com.google.firebase:firebase-database:10.2.0] C:\Users\HP\.android\build-cache\5e4d0dfef01bf94f59d6d80ac5455dfe9a726e13\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.firebase:firebase-database-connection:10.2.0] C:\Users\HP\.android\build-cache\494e4e054c8a77b8477c39d11260bb0dfaef184e\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\HP\.android\build-cache\5989be289b145fc8a4337fc66a8b3a76a0f7255d\output\AndroidManifest.xml:17:5-43
-MERGED from [com.google.firebase:firebase-storage:10.2.0] C:\Users\HP\.android\build-cache\3f05ca295c9207b2e6b2a448ecb18da0644e33c7\output\AndroidManifest.xml:3:5-43
-MERGED from [com.google.firebase:firebase-storage-common:10.2.0] C:\Users\HP\.android\build-cache\a0096941e76a50618c51df87604f80c8c82125e4\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-fitness:10.2.0] C:\Users\HP\.android\build-cache\7c51e6c96c8be229faf8e924292550c65115e513\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-games:10.2.0] C:\Users\HP\.android\build-cache\da0e973c3516c4eeb21bf334803c5bc42cc297b6\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-drive:10.2.0] C:\Users\HP\.android\build-cache\1aafb14087b5526327f9c5074bba6fe2f21a18a9\output\AndroidManifest.xml:17:5-43
@@ -332,6 +326,13 @@ MERGED from [com.google.android.gms:play-services-wearable:10.2.0] C:\Users\HP\.
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\HP\.android\build-cache\c5055a28f3b49c81c2d62f5cd57ec0104551e614\output\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-maps:10.2.0] C:\Users\HP\.android\build-cache\e7485434371b208aaaebf3faf2223982df3e2de2\output\AndroidManifest.xml:23:5-43
 MERGED from [com.google.android.gms:play-services-base:10.2.0] C:\Users\HP\.android\build-cache\b3003c195d320345f04028c99e30c97dd1ade929\output\AndroidManifest.xml:17:5-43
+MERGED from [com.firebaseui:firebase-ui-storage:0.6.0] C:\Users\HP\.android\build-cache\3fe79c876c0eae1ea402ba08237db80c478577b8\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\HP\.android\build-cache\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\HP\.android\build-cache\53b3978ae3c84d76d19778d84aa6748716538e02\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\HP\.android\build-cache\9876d5fbabe46ba5b2b6227e8d0aebf3f022c4c5\output\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:palette-v7:24.0.0] C:\Users\HP\.android\build-cache\a865e5c9c1d1ea85a1ca4804b3d55a804a2aec17\output\AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-storage:10.2.0] C:\Users\HP\.android\build-cache\3f05ca295c9207b2e6b2a448ecb18da0644e33c7\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-storage-common:10.2.0] C:\Users\HP\.android\build-cache\a0096941e76a50618c51df87604f80c8c82125e4\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.firebase:firebase-core:10.2.0] C:\Users\HP\.android\build-cache\8c5335485224dc5db34cdf85e7dbcf834733bf03\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\HP\.android\build-cache\7679cb38b9bfc443a2c442ebea92e1f85e62e67e\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\HP\.android\build-cache\5bdb2fe4b30fca8b3c287e655b89fcee64e3edd1\output\AndroidManifest.xml:17:5-43

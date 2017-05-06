@@ -66,7 +66,6 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
     StorageReference storage;
 
     static final int CAM_REQUEST = 1;
-    private static final int CAMERA_REQUEST_CODE = 1;
     private static final String URI = "uri";
     public String path = "sdcard/camera_app/";
     public String filename = "cam_image.jpg";
@@ -161,8 +160,7 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                          dayNext.set(Calendar.MINUTE,0);
                          dayNext.set(Calendar.SECOND,0);
                          dayNext.set(Calendar.MILLISECOND,0);
-                         String t1 = new SimpleDateFormat("dd-MM-yy HH:mm:ss").format(dayNext.getTime());
-                         Log.v("t1",t1);
+                         Log.v("t1", new SimpleDateFormat("dd-MM-yy HH:mm:ss").format(dayNext.getTime())) ;
                          Log.v("serverTime",""+serverTime);
                          Log.v("dayNaext time",""+dayNext.getTimeInMillis());
                          long timeToMidnight = dayNext.getTimeInMillis() - serverTime;
@@ -209,7 +207,7 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(URI, "camera");
-        if (requestCode == CAMERA_REQUEST_CODE) {
+        if (requestCode == CAM_REQUEST) {
             if (resultCode == RESULT_OK) {
 
                 Log.d(URI, "camera1");

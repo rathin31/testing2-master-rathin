@@ -7,59 +7,65 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
-import android.support.v4.app.FragmentManager;
 
-import com.digits.sdk.android.AuthCallback;
-import com.digits.sdk.android.DigitsAuthButton;
-import com.digits.sdk.android.DigitsException;
-import com.digits.sdk.android.DigitsSession;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
-import static com.example.rathin.testing.R.id.etPasswordConfirm;
+import static android.app.Activity.RESULT_OK;
 
 
 public class fragment_tabbed_registration extends Fragment implements View.OnClickListener{
 
-    private EditText etPassword,etName,etEmail,etMobile,etPasswordConfirm,editText;
+    private EditText etPassword,etName,etEmail,etMobile,etPasswordConfirm;
     private Button btRegister;
     private ProgressDialog progressDialog;
-    private DatabaseReference mFirebaseDatabase;
-    private FirebaseDatabase mFirebaseInstance;
+    private DatabaseReference mFirebaseDatabase,mTimeRef;
+    StorageReference mImageRef;
     private FirebaseAuth firebaseAuth;
 
     private DatePickerFragment datePickerFragment;
     private static Calendar dateTime = Calendar.getInstance();
     static int mYear, mMonth, mDay;
     static EditText displayDOB;
+    static final int RESULT_LOAD_IMAGE=1;
+    ImageView iv_upload;
+    byte[] byteArray;
+    long serverTime;
 
 
     @Override
@@ -67,9 +73,8 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_tabbed_registration, container, false);
         firebaseAuth =FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference();
-        mFirebaseInstance = FirebaseDatabase.getInstance();
-        mFirebaseDatabase = mFirebaseInstance.getReference("Registration");
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("Registration");
+        mImageRef = FirebaseStorage.getInstance().getReference("ProfilePictures");
         etPassword = (EditText) rootView.findViewById(R.id.etPassword);
         etName = (EditText) rootView.findViewById(R.id.etName);
         etMobile = (EditText) rootView.findViewById(R.id.etMobile);
@@ -77,26 +82,10 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
         etPasswordConfirm = (EditText) rootView.findViewById(R.id.etPasswordConfirm);
         btRegister = (Button) rootView.findViewById(R.id.btRegister);
         displayDOB=(EditText)rootView.findViewById(R.id.displayDOB);
+        iv_upload = (ImageView) rootView.findViewById(R.id.iv_upload);
+
+        iv_upload.setOnClickListener(this);
         displayDOB.setOnClickListener(this);
-        DigitsAuthButton digitsButton = (DigitsAuthButton) rootView.findViewById(R.id.auth_button);
-        digitsButton.setCallback(new AuthCallback() {
-            @Override
-            public void success(DigitsSession session, String phoneNumber) {
-                // TODO: associate the session userID with your user model
-                //Intent login = new Intent(OtpLogin.this, fragment_tabbed_login.class);
-                //startActivity(login);
-                Toast.makeText(getContext(), "Authentication successful for "
-                        + phoneNumber, Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void failure(DigitsException exception) {
-
-
-                Log.d("Digits", "Sign in with Digits failure", exception);
-            }
-        });
-
-        //progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
         progressDialog = new ProgressDialog(getActivity());
         btRegister.setOnClickListener(this);
 
@@ -196,7 +185,7 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                                 String email = etEmail.getText().toString().trim();
                                 String password = etPassword.getText().toString().trim();
                                 String number = etMobile.getText().toString().trim();
-                                String Birthday=displayDOB.getText().toString().trim();
+                                String birthdate=displayDOB.getText().toString().trim();
                                 EncryptPassword enc_pass = new EncryptPassword();
                                 try {
                                     password = enc_pass.SHA1Hash(password);
@@ -205,14 +194,35 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                                 } catch (UnsupportedEncodingException e) {
                                     e.printStackTrace();
                                 }
-                                String joiningdate = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-                                UserInformation userInformation = new UserInformation(name, email, password, number,joiningdate,Birthday);
-                                String result = email.replaceAll("[-_$.:,/]","");
-                                mFirebaseDatabase.child(result).setValue(userInformation);
+                                mTimeRef= FirebaseDatabase.getInstance().getReference("CurrentTime");
+                                mTimeRef.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        serverTime =(long)dataSnapshot.getValue();
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+                                String joiningdate = new SimpleDateFormat("dd-MM-yyyy").format(serverTime);
+                                UserInformation userInformation = new UserInformation(name, email, password, number,joiningdate,birthdate);
+                                email = email.replaceAll("[-_$.:,/]","");
+                                StorageReference myRef = mImageRef.child(email+".jpg");
+                                UploadTask mTask = myRef.putBytes(byteArray);
+                                mTask.addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(getActivity(),"Something went wrong:"+e.toString(),Toast.LENGTH_SHORT);
+                                    }
+                                });
+                                mFirebaseDatabase.child(email).setValue(userInformation);
                                 etName.setText("");
                                 etEmail.setText("");
                                 etPasswordConfirm.setText("");
                                 etMobile.setText("");
+                                displayDOB.setText("");
                                 progressDialog.dismiss();
                             }
                         }
@@ -258,10 +268,29 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
             datePickerFragment.show(getActivity().getFragmentManager(), "Select your birthdate");
         }
 
+        if (v==iv_upload){
+            Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(i, RESULT_LOAD_IMAGE);
+        }
+
     }
 
-
-
-
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+            Cursor cursor = getContext().getContentResolver().query(selectedImage,filePathColumn, null, null, null);
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            cursor.close();
+            Bitmap mBitap = BitmapFactory.decodeFile(picturePath);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            mBitap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+            byteArray = baos.toByteArray();
+            iv_upload.setImageBitmap(mBitap);
+        }
+    }
 }

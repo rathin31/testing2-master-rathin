@@ -10,28 +10,28 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:id="@+id/linearLayout"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
 
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:scrollbars="vertical">
 
 
             <ImageView
-                android:layout_width="match_parent"
                 android:id="@+id/imageView7"
-                android:background="@drawable/ddbtext"
-                android:layout_height="80dp" />
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/ddbtext" />
         </LinearLayout>
 
         <ScrollView
@@ -41,57 +41,66 @@
             android:fillViewport="false">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:background="@drawable/curved_linear"
                 android:gravity="center"
-                android:layout_margin="5dp">
-
-
+                android:orientation="vertical">
 
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="15dp"
                     android:background="@android:color/background_light"
-                    android:layout_margin="15dp">
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_upload"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:clickable="true"
+                        android:contentDescription="click here to select a photo"
+                        app:srcCompat="@drawable/ic_person_black_48dp" />
 
                     <TableLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <TableRow android:layout_marginLeft="5dp"
-                            android:layout_marginTop="10dp"
+                        <TableRow
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp">
 
 
                             <LinearLayout
-                                android:orientation="horizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp">
+                                android:layout_marginRight="10dp"
+                                android:orientation="horizontal">
 
                                 <TextView
-                                    android:text="Name"
-                                    android:layout_height="wrap_content"
                                     android:id="@+id/tvName"
-                                    android:textSize="20sp"
                                     android:layout_width="90dp"
-                                    android:layout_gravity="center_vertical" />
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="Name"
+                                    android:textSize="20sp" />
 
                                 <EditText
+                                    android:id="@+id/etName"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:inputType="textPersonName"
-                                    android:id="@+id/etName"
+                                    android:layout_gravity="center_vertical"
                                     android:layout_weight="0.43"
                                     android:ems="8"
                                     android:hint="@string/name_hint"
-                                    android:scrollbars="horizontal"
-                                    android:layout_gravity="center_vertical" />
+                                    android:inputType="textPersonName"
+                                    android:scrollbars="horizontal" />
 
                             </LinearLayout>
                         </TableRow>
@@ -108,30 +117,30 @@
                                 android:forceHasOverlappingRendering="true">
 
                                 <TextView
-                                    android:text="Email"
-                                    android:layout_height="wrap_content"
                                     android:id="@+id/tvEmail"
-                                    android:textSize="20sp"
-                                    android:layout_width="90dp" />
+                                    android:layout_width="90dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Email"
+                                    android:textSize="20sp" />
 
                                 <AutoCompleteTextView
+                                    android:id="@+id/etEmail"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/etEmail"
+                                    android:ems="8"
                                     android:hint="@string/email_hint"
-                                    android:textColorLink="?attr/colorPrimary"
-                                    android:ems="8" />
+                                    android:textColorLink="?attr/colorPrimary" />
 
                                 <ImageView
+                                    android:id="@+id/imageView"
                                     android:layout_width="wrap_content"
                                     android:layout_height="33dp"
-                                    app:srcCompat="@drawable/ic_email_black_12dp"
-                                    android:id="@+id/imageView"
+                                    android:layout_gravity="center_vertical"
                                     android:layout_marginRight="1dp"
                                     android:forceHasOverlappingRendering="false"
+                                    android:paddingLeft="10dp"
                                     android:textAlignment="textStart"
-                                    android:layout_gravity="center_vertical"
-                                    android:paddingLeft="10dp" />
+                                    app:srcCompat="@drawable/ic_email_black_12dp" />
 
                             </LinearLayout>
                         </TableRow>
@@ -142,36 +151,36 @@
                             android:layout_marginLeft="5dp">
 
                             <LinearLayout
-                                android:orientation="horizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp">
+                                android:layout_marginRight="10dp"
+                                android:orientation="horizontal">
 
                                 <TextView
-                                    android:text="Password"
-                                    android:layout_height="wrap_content"
                                     android:id="@+id/tvPassword"
-                                    android:textSize="20sp"
-                                    android:layout_width="90dp" />
+                                    android:layout_width="90dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Password"
+                                    android:textSize="20sp" />
 
                                 <EditText
+                                    android:id="@+id/etPassword"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:inputType="textPassword"
+                                    android:layout_gravity="center_vertical"
                                     android:ems="8"
-                                    android:id="@+id/etPassword"
                                     android:hint="@string/password_hint"
-                                    android:textColorLink="?attr/colorPrimary"
-                                    android:layout_gravity="center_vertical" />
+                                    android:inputType="textPassword"
+                                    android:textColorLink="?attr/colorPrimary" />
 
                                 <ImageView
-                                    android:layout_width="match_parent"
-                                    app:srcCompat="@drawable/ic_lock_black_24dp"
                                     android:id="@+id/ivPassword"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="33dp"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_weight="1"
                                     android:layout_marginRight="1dp"
-                                    android:layout_height="33dp" />
+                                    android:layout_weight="1"
+                                    app:srcCompat="@drawable/ic_lock_black_24dp" />
 
                             </LinearLayout>
                         </TableRow>
@@ -182,39 +191,39 @@
                             android:layout_marginLeft="5dp">
 
                             <LinearLayout
-                                android:orientation="horizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="10dp"
+                                android:orientation="horizontal"
                                 android:weightSum="1">
 
                                 <TextView
-                                    android:text="Confirm Password"
                                     android:id="@+id/tvPasswordConfirm"
-                                    android:textSize="20sp"
+                                    android:layout_width="90dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="0dp"
                                     android:layout_gravity="center"
-                                    android:layout_width="90dp" />
+                                    android:layout_marginTop="0dp"
+                                    android:text="Confirm Password"
+                                    android:textSize="20sp" />
 
                                 <EditText
+                                    android:id="@+id/etPasswordConfirm"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:inputType="textPassword"
+                                    android:layout_gravity="center_vertical"
                                     android:ems="8"
-                                    android:id="@+id/etPasswordConfirm"
                                     android:hint="@string/password_hint"
-                                    android:textColorLink="?attr/colorPrimary"
-                                    android:layout_gravity="center_vertical" />
+                                    android:inputType="textPassword"
+                                    android:textColorLink="?attr/colorPrimary" />
 
                                 <ImageView
-                                    android:layout_width="match_parent"
-                                    app:srcCompat="@drawable/ic_visibility_black_18dp"
                                     android:id="@+id/ivPassVisible"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="33dp"
                                     android:layout_gravity="center_vertical"
-                                    android:clickable="true"
                                     android:layout_marginRight="1dp"
-                                    android:layout_height="33dp" />
+                                    android:clickable="true"
+                                    app:srcCompat="@drawable/ic_visibility_black_18dp" />
 
                             </LinearLayout>
                         </TableRow>
@@ -225,17 +234,17 @@
                             android:layout_marginLeft="5dp">
 
                             <LinearLayout
-                                android:orientation="horizontal"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
                                 <TextView
-                                    android:text="Mobile No"
-                                    android:layout_height="wrap_content"
                                     android:id="@+id/tvMobile"
-                                    android:textSize="20sp"
                                     android:layout_width="90dp"
-                                    android:layout_marginBottom="5dp" />
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="Mobile No"
+                                    android:textSize="20sp" />
 
                                 <EditText
                                     android:id="@+id/etMobile"
@@ -247,60 +256,53 @@
                                     android:inputType="number" />
 
                                 <ImageView
-                                    android:layout_width="wrap_content"
-                                    app:srcCompat="@drawable/ic_phone_black_18dp"
                                     android:id="@+id/imageView6"
-                                    android:layout_marginRight="1dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="33dp"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_height="33dp" />
+                                    android:layout_marginRight="1dp"
+                                    app:srcCompat="@drawable/ic_phone_black_18dp" />
+
+                            </LinearLayout>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/bday"
+                                    android:layout_width="90dp"
+                                    android:layout_height="wrap_content"
+                                    android:elevation="1dp"
+                                    android:ems="8"
+                                    android:text="BirthDate"
+                                    android:textSize="20sp" />
+
+                                <EditText
+                                    android:id="@+id/displayDOB"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentStart="true"
+                                    android:ems="10"
+                                    android:focusable="false"
+                                    android:hint="mm/dd/yyyy"
+                                    android:inputType="date" />
+
 
                             </LinearLayout>
                         </TableRow>
 
                     </TableLayout>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/bday"
-                                android:layout_width="83dp"
-                                android:layout_height="wrap_content"
-                                android:elevation="1dp"
-                                android:ems="8"
-                                android:text="BirthDate"
-                                android:textSize="20sp" />
-
-                            <EditText
-                                android:id="@+id/displayDOB"
-                                android:layout_width="208dp"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_alignParentLeft="true"
-                                android:layout_alignParentStart="true"
-                                android:layout_marginBottom="14dp"
-                                android:layout_marginLeft="18dp"
-                                android:layout_marginStart="18dp"
-                                android:ems="10"
-                                android:focusable="false"
-                                android:hint="mm/dd/yyyy"
-                                android:inputType="date" />
-
-
-                        </LinearLayout>
-                    </TableRow>
-
-
-
-
 
 
                     <RelativeLayout
@@ -309,18 +311,14 @@
                         android:layout_margin="20dp">
 
                         <Button
-                            android:text="Register"
+                            android:id="@+id/btRegister"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/btRegister"
                             android:background="@drawable/curved_linear"
+                            android:text="Register"
                             android:textColor="#ffff" />
 
                     </RelativeLayout>
-                    <com.digits.sdk.android.DigitsAuthButton
-                        android:id="@+id/auth_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
             </LinearLayout>

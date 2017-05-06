@@ -75,6 +75,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-maps:10.2.0'
     compile 'com.github.npanigrahy:Custom-Calendar-View:v1.1'
     compile 'commons-net:commons-net:3.6'
+    compile 'com.firebaseui:firebase-ui-storage:0.6.0'
     testCompile 'junit:junit:4.12'
 }
 

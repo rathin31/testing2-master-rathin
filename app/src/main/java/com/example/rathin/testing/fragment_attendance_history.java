@@ -43,7 +43,7 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
     CustomCalendarView cv;
     boolean photo_flag;
     Calendar currentCalendar;
-    String uEmail,timeStamp;
+    String uEmail;
     ViewGroup.LayoutParams param;
     LinearLayout mLayout;
 

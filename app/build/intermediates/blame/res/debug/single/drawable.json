@@ -44,12 +44,12 @@
         "source": "C:\\Users\\HP\\.android\\build-cache\\f673d06a7115a548556597bad17054fee0b7fdf9\\output\\res\\drawable\\cast_ic_notification_play.xml"
     },
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_trending_up_black_48dp.png",
-        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\drawable\\ic_trending_up_black_48dp.png"
-    },
-    {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_trending_up_black_48dp.png",
+        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\drawable\\ic_trending_up_black_48dp.png"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
@@ -122,6 +122,10 @@
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_media_route_connecting_dark.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\drawable\\mr_ic_media_route_connecting_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_person_black_48dp.png",
+        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\drawable\\ic_person_black_48dp.png"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_mini_controller_progress_drawable.xml",
@@ -450,6 +454,10 @@
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light_focused.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\b3003c195d320345f04028c99e30c97dd1ade929\\output\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_file_upload_black_24dp.png",
+        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\drawable\\ic_file_upload_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_expanded_controller_skip_next.xml",

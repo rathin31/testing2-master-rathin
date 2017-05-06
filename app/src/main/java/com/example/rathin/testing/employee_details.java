@@ -15,12 +15,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.Map;
 
@@ -33,9 +37,10 @@ public class employee_details extends AppCompatActivity implements View.OnClickL
     private EditText et_email,et_phone,et_birth,et_join;
     TextView tv_name;
     FirebaseAuth firebaseAuth;
+    StorageReference mStorage;
     Map<String,String> map;
     private Firebase mRef;
-    private ImageView iv_edit_phone;
+    private ImageView iv_edit_phone,iv_myphoto;
     String uEmail;
     ProgressDialog mProgressDialog;
 
@@ -55,17 +60,22 @@ public class employee_details extends AppCompatActivity implements View.OnClickL
         setSupportActionBar(toolbar);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        mStorage = FirebaseStorage.getInstance().getReference("ProfilePictures");
         FirebaseUser user = firebaseAuth.getCurrentUser();
         uEmail = user.getEmail().replaceAll("[-_$.:,/]","");
+
         tv_name= (TextView) findViewById(R.id.et_employee_name);
         et_email=(EditText) findViewById(R.id.et_email);
         et_phone=(EditText) findViewById(R.id.et_phone);
         et_birth= (EditText) findViewById(R.id.et_birthdate);
         et_join = (EditText) findViewById(R.id.et_joining_date);
         iv_edit_phone = (ImageView) findViewById(R.id.iv_edit_phone);
+        iv_myphoto = (ImageView) findViewById(R.id.iv_myphoto);
         iv_edit_phone.setOnClickListener(this);
 
         mRef=new Firebase("https://testing-9f5eb.firebaseio.com/Registration/"+uEmail);
+        mStorage = mStorage.child(uEmail+".jpg");
+        Glide.with(this).using(new FirebaseImageLoader()).load(mStorage).into(iv_myphoto);
     }
 
 

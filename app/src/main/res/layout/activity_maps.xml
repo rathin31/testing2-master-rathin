@@ -1,55 +1,59 @@
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.rathin.testing.MapsActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"  >
+    android:orientation="vertical"
+    tools:context="com.example.rathin.testing.MapsActivity">
 
     <EditText
+        android:id="@+id/etOrigin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etOrigin"
         android:hint="Enter origin address" />
 
     <EditText
+        android:id="@+id/etDestination"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter destination address"
-        android:id="@+id/etDestination" />
+        android:hint="Enter destination address" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="100">
 
         <Button
             android:id="@+id/btnFindPath"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Find path" />
+            android:layout_weight="30"
+            android:background="@drawable/curved_linear"
+            android:text="Find path"
+            android:textColor="#ffff" />
 
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:layout_weight="16"
             android:src="@drawable/ic_distance" />
 
         <TextView
             android:id="@+id/tvDistance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="5dp"
+            android:layout_weight="16"
             android:text="0 km" />
 
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:layout_weight="16"
             android:padding="5dp"
             android:src="@drawable/ic_clock" />
 
@@ -57,28 +61,38 @@
             android:id="@+id/tvDuration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="5dp"
+            android:gravity="center"
             android:text="0 min" />
     </LinearLayout>
 
 
-    <Button
-        android:id="@+id/stop"
-        android:layout_width="136dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stop" />
+        android:layout_gravity="bottom|end"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/locbtn"
-        android:layout_width="129dp"
-        android:layout_height="wrap_content"
-        android:text="Start" />
+        <Button
+            android:id="@+id/locbtn"
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/curved_linear"
+            android:text="Start"
+            android:textColor="#ffff" />
 
-    <TextView
-        android:id="@+id/mainLabel"
-        android:layout_width="231dp"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/curved_linear"
+            android:text="Stop"
+            android:textColor="#ffff" />
+
+    </LinearLayout>
 
     <fragment
         android:id="@+id/map"
