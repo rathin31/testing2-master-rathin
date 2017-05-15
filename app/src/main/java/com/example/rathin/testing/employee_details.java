@@ -42,7 +42,6 @@ public class employee_details extends AppCompatActivity implements View.OnClickL
     private Firebase mRef;
     private ImageView iv_edit_phone,iv_myphoto;
     String uEmail;
-    ProgressDialog mProgressDialog;
 
 
     @Override

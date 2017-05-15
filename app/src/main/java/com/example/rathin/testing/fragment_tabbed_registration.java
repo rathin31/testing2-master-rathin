@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.digits.sdk.android.AuthCallback;
+import com.digits.sdk.android.DigitsAuthButton;
+import com.digits.sdk.android.DigitsException;
+import com.digits.sdk.android.DigitsSession;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -45,6 +50,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Map;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -66,6 +72,7 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
     ImageView iv_upload;
     byte[] byteArray;
     long serverTime;
+    Map<String,Object> map;
 
 
     @Override
@@ -81,6 +88,7 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
         etEmail = (EditText) rootView.findViewById(R.id.etEmail);
         etPasswordConfirm = (EditText) rootView.findViewById(R.id.etPasswordConfirm);
         btRegister = (Button) rootView.findViewById(R.id.btRegister);
+        btRegister.setVisibility(View.INVISIBLE);
         displayDOB=(EditText)rootView.findViewById(R.id.displayDOB);
         iv_upload = (ImageView) rootView.findViewById(R.id.iv_upload);
 
@@ -88,6 +96,29 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
         displayDOB.setOnClickListener(this);
         progressDialog = new ProgressDialog(getActivity());
         btRegister.setOnClickListener(this);
+
+        final DigitsAuthButton digitsButton = (DigitsAuthButton) rootView.findViewById(R.id.auth_button);
+        digitsButton.setText("Verify Your Mobile Number");
+        digitsButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        digitsButton.setCallback(new AuthCallback() {
+            @Override
+            public void success(DigitsSession session, String phoneNumber) {
+                // TODO: associate the session userID with your user model
+                //Intent login = new Intent(OtpLogin.this, fragment_tabbed_login.class);
+                //startActivity(login);
+                Toast.makeText(getContext(), "Authentication successful for "
+                        + phoneNumber, Toast.LENGTH_LONG).show();
+                digitsButton.setEnabled(false);
+                SaveInformation();
+
+            }
+            @Override
+            public void failure(DigitsException exception) {
+
+
+                Log.d("Digits", "Sign in with Digits failure", exception);
+            }
+        });
 
         return rootView;
     }
@@ -161,7 +192,6 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
         if ((confirm.equals(password))) {
             progressDialog.setMessage("Registering.");
             progressDialog.show();
-            sendVerificationEmail();
             firebaseAuth
                     .createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
@@ -198,7 +228,8 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                                 mTimeRef.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
-                                        serverTime =(long)dataSnapshot.getValue();
+                                        map = (Map<String,Object>)dataSnapshot.getValue();
+                                        serverTime = (long) map.get("Time");
                                     }
 
                                     @Override
@@ -207,6 +238,7 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
                                     }
                                 });
                                 String joiningdate = new SimpleDateFormat("dd-MM-yyyy").format(serverTime);
+                                sendVerificationEmail();
                                 UserInformation userInformation = new UserInformation(name, email, password, number,joiningdate,birthdate);
                                 email = email.replaceAll("[-_$.:,/]","");
                                 StorageReference myRef = mImageRef.child(email+".jpg");
@@ -288,7 +320,7 @@ public class fragment_tabbed_registration extends Fragment implements View.OnCli
             cursor.close();
             Bitmap mBitap = BitmapFactory.decodeFile(picturePath);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            mBitap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+            mBitap.compress(Bitmap.CompressFormat.JPEG,50,baos);
             byteArray = baos.toByteArray();
             iv_upload.setImageBitmap(mBitap);
         }

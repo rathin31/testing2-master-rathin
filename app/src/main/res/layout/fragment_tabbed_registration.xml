@@ -139,7 +139,6 @@
                                     android:layout_marginRight="1dp"
                                     android:forceHasOverlappingRendering="false"
                                     android:paddingLeft="10dp"
-                                    android:textAlignment="textStart"
                                     app:srcCompat="@drawable/ic_email_black_12dp" />
 
                             </LinearLayout>
@@ -309,7 +308,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="20dp">
-
+                        <com.digits.sdk.android.DigitsAuthButton
+                            android:id="@+id/auth_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
                         <Button
                             android:id="@+id/btRegister"
                             android:layout_width="match_parent"
@@ -317,6 +319,7 @@
                             android:background="@drawable/curved_linear"
                             android:text="Register"
                             android:textColor="#ffff" />
+
 
                     </RelativeLayout>
                 </LinearLayout>

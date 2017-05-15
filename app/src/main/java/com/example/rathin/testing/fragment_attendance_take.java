@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -46,7 +45,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-import static android.R.attr.data;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
@@ -144,7 +142,6 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
              uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                      @Override
                  public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
                      progressDialog.dismiss();
                      Toast.makeText(getActivity(), "Your attendance is taken..", Toast.LENGTH_SHORT).show();
                      if(count<3) {
@@ -182,7 +179,6 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                              }
                          };
                          resetTimer.schedule(ResetParam,timeToMidnight);
-
                      }
                  }
              }).addOnFailureListener(new OnFailureListener() {
@@ -220,11 +216,11 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                     bitmap.compress(Bitmap.CompressFormat.JPEG,12, baos);
                     bytedata = baos.toByteArray();
 
-                    Matrix matrix = new Matrix();
+                    /*Matrix matrix = new Matrix();
                     matrix.postRotate(270);
-                    Bitmap newbitmap = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+                    Bitmap newbitmap = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);*/
 
-                    mImageView.setImageBitmap(newbitmap);
+                    mImageView.setImageBitmap(bitmap);
                 }catch (Exception e){
                     Toast.makeText(getActivity(),"Oops!! Something went Wrong. Please Try again.",Toast.LENGTH_SHORT);
                 }

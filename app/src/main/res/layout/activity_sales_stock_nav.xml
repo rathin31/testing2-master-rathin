@@ -5,7 +5,7 @@
     android:id="@+id/activity_sales_stock_nav"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rathin.testing.SalesStockNav2">
+    tools:context="com.example.rathin.testing.SaleStock">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -30,34 +30,15 @@
 
 
     <Spinner
-        android:id="@+id/spinner_item"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:drawable/spinner_dropdown_background"
-        android:gravity="center_vertical"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
-
-    <Spinner
         android:id="@+id/spinner_models"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="8dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="8dp"
         android:background="@android:drawable/spinner_dropdown_background"
-        android:gravity="center_vertical"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -79,25 +60,26 @@
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_models" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_models"
+        android:layout_marginStart="8dp" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/tv_stock"
         android:layout_width="60dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="12dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"
         android:background="#ffff"
         android:editable="false"
         android:elevation="1dp"
         android:gravity="center"
         android:inputType="none"
-        android:text="60"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintLeft_toRightOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_models" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_models"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/textView14"
@@ -111,8 +93,9 @@
         android:text="Units Sold:"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintLeft_toRightOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_models" />
+        app:layout_constraintLeft_toRightOf="@+id/tv_stock"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_models"
+        android:layout_marginStart="15dp" />
 
     <TextView
         android:id="@+id/textView16"
@@ -127,7 +110,8 @@
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        android:layout_marginStart="8dp" />
 
     <TextView
         android:id="@+id/textView17"
@@ -141,46 +125,51 @@
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        android:layout_marginStart="8dp" />
 
     <EditText
         android:id="@+id/et_sp"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:background="#ffff"
         android:elevation="1dp"
         android:ems="10"
-        android:inputType="number"
-        android:text="5400"
+        android:inputType="number|numberDecimal"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/textView16"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_cp" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_cp" />
 
-    <EditText
-        android:id="@+id/et_cp"
+    <TextView
+        android:id="@+id/tv_cp"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:background="#ffff"
         android:editable="false"
         android:elevation="1dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="none"
-        android:text="4899.55"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/textView17"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/et_mrp" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_mrp" />
 
     <EditText
         android:id="@+id/et_sold"
@@ -193,13 +182,14 @@
         android:elevation="1dp"
         android:ems="10"
         android:inputType="number"
-        android:text="68"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/textView14"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_models" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_models"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/textView19"
@@ -213,14 +203,17 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/textView18"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="8dp" />
 
-    <EditText
-        android:id="@+id/et_profit"
+    <TextView
+        android:id="@+id/tv_profit"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="#ffff"
         android:editable="false"
@@ -228,11 +221,12 @@
         android:ems="10"
         android:inputType="none"
         android:textAlignment="center"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/textView19"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_discount" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_discount" />
 
     <TextView
         android:id="@+id/textView13"
@@ -246,10 +240,11 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="8dp" />
 
-    <EditText
-        android:id="@+id/et_mrp"
+    <TextView
+        android:id="@+id/tv_mrp"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginLeft="16dp"
@@ -261,27 +256,30 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="none"
-        android:text="59284"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/textView13"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/curved_linear"
         android:text="Save"
         android:textColor="@color/tw__solid_white"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/textView18"
@@ -295,25 +293,74 @@
         android:text="Discount"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        android:layout_marginStart="8dp" />
 
-    <EditText
-        android:id="@+id/et_discount"
+    <TextView
+        android:id="@+id/tv_discount"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="#ffff"
         android:editable="false"
         android:elevation="1dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="none"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/textView18"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_sp" />
+
+    <Spinner
+        android:id="@+id/spinner_item"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/spinner_dropdown_background"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Items"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/spinner_item"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Models"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/spinner_models"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
 
 </android.support.constraint.ConstraintLayout>

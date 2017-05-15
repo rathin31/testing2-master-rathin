@@ -1,7 +1,6 @@
 package com.example.rathin.testing;
 
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -52,7 +51,7 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
     DatabaseReference mTimeRef;
     Map<String,Object> map;
     long serverTime;
-
+    ArrayList<String> past_attendance;
     SharedPreferences sp;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,12 +65,14 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
         mLayout = (LinearLayout) rootView.findViewById(R.id.wrapper_layout);
 
         sp = getContext().getSharedPreferences("mypref",MODE_PRIVATE);
-
         firebaseAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = new Firebase("https://testing-9f5eb.firebaseio.com/Attendance");
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        uEmail=user.getEmail();
-        uEmail = uEmail.replaceAll("[-_$.,]","");
+        uEmail=user.getEmail().replaceAll("[-_$.,]","");
+
+        sp = getContext().getSharedPreferences("mypref",MODE_PRIVATE);
+        past_attendance = new ArrayList<String>(sp.getStringSet("attendanceSet",null));
+        change_color();
 
         return rootView;
     }
@@ -83,20 +84,14 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
         /*Check if exactly 3 images are taken or not. If yes, set a flag to true, otherwise false.*/
         if (count==3){
             photo_flag=true;
+            change_color();
         } else{
             photo_flag=false;
         }
-        Activity act = (Activity)getContext();
-        act.runOnUiThread(new Runnable(){
-            @Override
-            public void run() {
-                change_color();
-            }
-        });
     }
 
     /*change_color() method will set Decorators to modify a particular date in our CustomCalendarView*/
-    public void change_color(){
+    public void change_color() {
         List<DayDecorator> decorators = new ArrayList<>();
         decorators.add(new ColorDecorator());
         cv.setDecorators(decorators);
@@ -137,6 +132,7 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
     }
 
 
+
     /*ColorDecorator is the method which modifies the background color of dates, although it'snot the only thing it can do.*/
     public class ColorDecorator implements DayDecorator, com.google.firebase.database.ValueEventListener {
         @Override
@@ -163,7 +159,7 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
 
             //if calendar's today's date is same as system's today's date, change the color.
             if(year==cur_year && month==cur_month && day==cur_day) {
-                String timeStamp1 = new SimpleDateFormat("/MM/dd-yy").format(serverTime);
+                String timeStamp1 = new SimpleDateFormat("/MM-yy/dd").format(serverTime);
                 if(photo_flag) {
                     color = Color.parseColor("#00E676");
                     mFirebaseDatabase.child(uEmail+timeStamp1).setValue(true);
@@ -173,8 +169,14 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
                     mFirebaseDatabase.child(uEmail+timeStamp1).setValue(false);
 
                 }
-                dayView.setBackgroundColor(color);
             }
+
+            for (int i=0;i<past_attendance.size();i++){
+                if(past_attendance.get(i).equals(new SimpleDateFormat("dd").format(dayView.getDate()))){
+                    dayView.setBackgroundColor(Color.parseColor("#00E632"));
+                }
+            }
+
         }
 
         @Override

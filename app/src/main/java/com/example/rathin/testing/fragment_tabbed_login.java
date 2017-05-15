@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +22,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import static android.content.ContentValues.TAG;
 
 public class fragment_tabbed_login extends Fragment implements View.OnClickListener{
 
@@ -56,7 +53,7 @@ public class fragment_tabbed_login extends Fragment implements View.OnClickListe
         return rootView;
     }
 
-    
+
     private void SignIn( ) {
         boolean valid = true;
         String email = actvEmail.getText().toString().trim();
@@ -79,9 +76,18 @@ public class fragment_tabbed_login extends Fragment implements View.OnClickListe
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 progressDialog.dismiss();
-                                Toast.makeText(getActivity(), "You are Successfully Logged In", Toast.LENGTH_LONG).show();
-                                Intent gotocam= new Intent(getActivity(),landing_page.class);
-                                startActivity(gotocam);                                }
+                                final FirebaseUser user = firebaseAuth.getCurrentUser();
+                                if(user.isEmailVerified()) {
+                                    Toast.makeText(getActivity(), "You are Successfully Logged In", Toast.LENGTH_LONG).show();
+                                    Intent gotocam = new Intent(getActivity(), landing_page.class);
+                                    startActivity(gotocam);
+                                }
+                                else {
+
+                                    Intent verify = new Intent(getActivity(), VerifyEmail.class);
+                                    startActivity(verify);
+                                }
+                            }
                             else {
                                 progressDialog.dismiss();
                                 Toast.makeText(getActivity(), "Logging In failed,Try again ", Toast.LENGTH_LONG).show();

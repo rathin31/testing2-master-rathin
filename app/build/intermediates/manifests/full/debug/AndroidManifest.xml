@@ -110,6 +110,10 @@
         <activity android:name="com.example.rathin.testing.SaleStock" />
         <activity android:name="com.example.rathin.testing.LatLong" />
         <activity
+            android:name="com.example.rathin.testing.VerifyEmail"
+            android:label="@string/title_activity_verify_email"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name="com.digits.sdk.android.PhoneNumberActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"

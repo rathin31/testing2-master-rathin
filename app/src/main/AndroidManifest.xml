@@ -88,7 +88,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".SaleStock" />
-        <activity android:name=".LatLong"></activity>
+        <activity android:name=".LatLong" />
+        <activity
+            android:name=".VerifyEmail"
+            android:label="@string/title_activity_verify_email"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
