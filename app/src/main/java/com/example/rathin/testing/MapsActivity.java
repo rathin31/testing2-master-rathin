@@ -1,49 +1,12 @@
 package com.example.rathin.testing;
 
-import android.*;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
-
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
-
-import Modules.DirectionFinder;
-import Modules.DirectionFinderListener;
-import Modules.Route;
-import android.Manifest;
-import android.app.ProgressDialog;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,7 +35,7 @@ import Modules.Route;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, DirectionFinderListener, View.OnClickListener{
 
     private GoogleMap mMap;
-    private Button btnFindPath,Locbtn;
+    private Button btnFindPath,locbtn,stop;
     private EditText etOrigin;
     private EditText etDestination;
     private List<Marker> originMarkers = new ArrayList<>();
@@ -88,23 +51,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        Locbtn=(Button)findViewById(R.id.locbtn);
+        locbtn=(Button)findViewById(R.id.locbtn);
         btnFindPath = (Button) findViewById(R.id.btnFindPath);
         etOrigin = (EditText) findViewById(R.id.etOrigin);
         etDestination = (EditText) findViewById(R.id.etDestination);
-        Locbtn.setOnClickListener(this);
+        stop=(Button)findViewById(R.id.stop);
+        locbtn.setOnClickListener(this);
         btnFindPath.setOnClickListener(this);
-    }
-
-    private void TimeandLoc()
-    {
-
-
-
-
+        stop.setOnClickListener(this);
 
     }
-
 
 
     private void sendRequest() {
@@ -214,9 +170,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             sendRequest();
 
         }
-        if(v==Locbtn)
+        if(v==locbtn)
         {
-            TimeandLoc();
+            Intent lat = new Intent(MapsActivity.this,LatLong.class);
+            startActivity(lat);
+        }
+        if(v==stop)
+        {
+            Intent stops = new Intent(MapsActivity.this,LatLong.class);
+            startActivity(stops);
+
         }
     }
 

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -42,6 +41,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -62,12 +64,12 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
     StorageReference storage;
 
     static final int CAM_REQUEST = 1;
-    private static final int CAMERA_REQUEST_CODE = 1;
     private static final String URI = "uri";
     public String path = "sdcard/camera_app/";
     public String filename = "cam_image.jpg";
     public Bitmap bitmap;
     public byte[] bytedata;
+    private TimerTask ResetParam;
     Map<String,Object> map;
     long serverTime;
     String Email;
@@ -140,7 +142,6 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
              uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                      @Override
                  public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
                      progressDialog.dismiss();
                      Toast.makeText(getActivity(), "Your attendance is taken..", Toast.LENGTH_SHORT).show();
                      if(count<3) {
@@ -156,16 +157,28 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                          dayNext.set(Calendar.MINUTE,0);
                          dayNext.set(Calendar.SECOND,0);
                          dayNext.set(Calendar.MILLISECOND,0);
-                         String t1 = new SimpleDateFormat("dd-MM-yy HH:mm:ss").format(dayNext.getTime());
-                         Log.v("t1",t1);
-                         String t2 =  new SimpleDateFormat("dd-MM-yy HH:mm:ss").format(new Date(serverTime));
-                         Log.v("t2",t2);
+                         Log.v("t1", new SimpleDateFormat("dd-MM-yy HH:mm:ss").format(dayNext.getTime())) ;
+                         Log.v("serverTime",""+serverTime);
+                         Log.v("dayNaext time",""+dayNext.getTimeInMillis());
                          long timeToMidnight = dayNext.getTimeInMillis() - serverTime;
-                         String tillMidnight = new SimpleDateFormat("HH:mm:ss").format(new Date(timeToMidnight));
-                         Log.v("Time To Midnight",tillMidnight);
+                         String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(timeToMidnight),
+                                 TimeUnit.MILLISECONDS.toMinutes(timeToMidnight) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(timeToMidnight)),
+                                 TimeUnit.MILLISECONDS.toSeconds(timeToMidnight) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(timeToMidnight)));
+                         Log.v("Time To Midnight",hms);
                          editor.putBoolean("camera_enabled",false);
                          editor.commit();
-                         Toast.makeText(getActivity(),"3 images taken",Toast.LENGTH_SHORT).show();
+                         Toast.makeText(getActivity(),"3 images taken. Time till attendance is enabled again: "+hms,Toast.LENGTH_LONG).show();
+                         Timer resetTimer = new Timer();
+                         ResetParam= new TimerTask() {
+                             @Override
+                             public void run() {
+                                 count=1;
+                                 editor.putBoolean("camera_enabled",true);
+                                 editor.putInt("ImageCount",1);
+                                 editor.commit();
+                             }
+                         };
+                         resetTimer.schedule(ResetParam,timeToMidnight);
                      }
                  }
              }).addOnFailureListener(new OnFailureListener() {
@@ -181,19 +194,16 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                          cv.setVisibility(View.VISIBLE);
                      }
              });
-
-
          }else if(v==btCancel){
              mLayout.setVisibility(View.GONE);
              cv.setVisibility(View.VISIBLE);
          }
-
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(URI, "camera");
-        if (requestCode == CAMERA_REQUEST_CODE) {
+        if (requestCode == CAM_REQUEST) {
             if (resultCode == RESULT_OK) {
 
                 Log.d(URI, "camera1");
@@ -206,11 +216,11 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                     bitmap.compress(Bitmap.CompressFormat.JPEG,12, baos);
                     bytedata = baos.toByteArray();
 
-                    Matrix matrix = new Matrix();
+                    /*Matrix matrix = new Matrix();
                     matrix.postRotate(270);
-                    Bitmap newbitmap = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+                    Bitmap newbitmap = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);*/
 
-                    mImageView.setImageBitmap(newbitmap);
+                    mImageView.setImageBitmap(bitmap);
                 }catch (Exception e){
                     Toast.makeText(getActivity(),"Oops!! Something went Wrong. Please Try again.",Toast.LENGTH_SHORT);
                 }
@@ -271,4 +281,5 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
     public void onCancelled(DatabaseError databaseError) {
 
     }
+
 }

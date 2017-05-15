@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.firebase.client.DataSnapshot;
@@ -41,15 +42,16 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
     CustomCalendarView cv;
     boolean photo_flag;
     Calendar currentCalendar;
-    TextView at_one,at_two,at_three;
     String uEmail;
+    ViewGroup.LayoutParams param;
+    LinearLayout mLayout;
 
     FirebaseAuth firebaseAuth;
-    Firebase mRef;
+    Firebase mRef,mFirebaseDatabase;
     DatabaseReference mTimeRef;
     Map<String,Object> map;
     long serverTime;
-
+    ArrayList<String> past_attendance;
     SharedPreferences sp;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,34 +61,37 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
         currentCalendar = Calendar.getInstance(Locale.getDefault());
         cv.setCalendarListener(this);
 
-        at_one = (TextView) rootView.findViewById(R.id.tv_attendance1);
-        at_two = (TextView) rootView.findViewById(R.id.tv_attendance2);
-        at_three = (TextView) rootView.findViewById(R.id.tv_attendance3);
+        param = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        mLayout = (LinearLayout) rootView.findViewById(R.id.wrapper_layout);
 
         sp = getContext().getSharedPreferences("mypref",MODE_PRIVATE);
-
         firebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = new Firebase("https://testing-9f5eb.firebaseio.com/Attendance");
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        uEmail=user.getEmail();
-        uEmail = uEmail.replaceAll("[-_$.,]","");
+        uEmail=user.getEmail().replaceAll("[-_$.,]","");
+
+        sp = getContext().getSharedPreferences("mypref",MODE_PRIVATE);
+        past_attendance = new ArrayList<String>(sp.getStringSet("attendanceSet",null));
+        change_color();
 
         return rootView;
     }
 
     @Override
     public void onResume() {
+        super.onResume();
         int count = sp.getInt("ImageCount",0);
         /*Check if exactly 3 images are taken or not. If yes, set a flag to true, otherwise false.*/
         if (count==3){
             photo_flag=true;
+            change_color();
         } else{
             photo_flag=false;
         }
-        change_color();
-        super.onResume();
     }
+
     /*change_color() method will set Decorators to modify a particular date in our CustomCalendarView*/
-    public void change_color(){
+    public void change_color() {
         List<DayDecorator> decorators = new ArrayList<>();
         decorators.add(new ColorDecorator());
         cv.setDecorators(decorators);
@@ -97,33 +102,35 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
     @Override
     public void onDateSelected(Date date) {
         final String mFolderName = new SimpleDateFormat("MM-yy/dd").format(date);
-       mRef = new Firebase("https://testing-9f5eb.firebaseio.com/ImageNames/"+uEmail+"/"+mFolderName);
+        mRef = new Firebase("https://testing-9f5eb.firebaseio.com/ImageNames/"+uEmail+"/"+mFolderName);
+        mLayout.removeAllViews();
 
-       mRef.addValueEventListener(new ValueEventListener() {
+        mRef.addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(DataSnapshot dataSnapshot) {
-               String[] temp = new String[3];
+               String[] temp = new String[50];
                int i=0;
                for (DataSnapshot ds: dataSnapshot.getChildren()) {
                    temp[i]=ds.getKey();
+                   TextView tv = new TextView(getActivity());
+                   tv.setText("Attendance no."+i+" taken at: "+temp[i]);
+                   mLayout.addView(tv);
                    i++;
                }
-               at_one.setText("Attendance no. one taken at:"+ temp[0]);
-               at_two.setText("Attendance no. two taken at:"+temp[1]);
-               at_three.setText("Attendance no. three taken at:"+temp[2]);
            }
 
            @Override
            public void onCancelled(FirebaseError firebaseError) {
 
            }
-       });
+        });
     }
 
     @Override
     public void onMonthChanged(Date date) {
 
     }
+
 
 
     /*ColorDecorator is the method which modifies the background color of dates, although it'snot the only thing it can do.*/
@@ -152,13 +159,24 @@ public class fragment_attendance_history extends Fragment implements CalendarLis
 
             //if calendar's today's date is same as system's today's date, change the color.
             if(year==cur_year && month==cur_month && day==cur_day) {
+                String timeStamp1 = new SimpleDateFormat("/MM-yy/dd").format(serverTime);
                 if(photo_flag) {
                     color = Color.parseColor("#00E676");
+                    mFirebaseDatabase.child(uEmail+timeStamp1).setValue(true);
+
                 }else{
                     color = Color.parseColor("#EF5350");
+                    mFirebaseDatabase.child(uEmail+timeStamp1).setValue(false);
+
                 }
-                dayView.setBackgroundColor(color);
             }
+
+            for (int i=0;i<past_attendance.size();i++){
+                if(past_attendance.get(i).equals(new SimpleDateFormat("dd").format(dayView.getDate()))){
+                    dayView.setBackgroundColor(Color.parseColor("#00E632"));
+                }
+            }
+
         }
 
         @Override

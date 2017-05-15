@@ -7,50 +7,13 @@
     <string name="action_sign_in_short">Sign In</string>
     <string name="name_hint">Enter your full name here</string>
     <string name="mobile_hint">10 digit mobile number here</string>
-    <string name="stock_sales">Stock &amp; Sales</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_attendance_tabbed">Testing</string>
-    <string name="title_activity_attendance__history">Attendance_History</string>
-    <string-array name="spinner_items">
-        <item>Computer</item>
-        <item>Mobile</item>
-        <item>Computer Accessories</item>
-        <item>Mobile-Accessories</item>
-        <item>Kitchen-Appliances</item>
-        <item>Home-Appliances</item>
-    </string-array>
 
-    <string-array name="mobile_brands">
-        <item>Samsung</item>
-        <item>Sony</item>
-        <item>Apple</item>
-        <item>Lenovo</item>
-        <item>Micromax</item>
-        <item>Xiomi</item>
-    </string-array>
-
-
-    <string-array name="computer_brands">
-        <item>Samsung</item>
-        <item>Apple</item>
-        <item>Lenovo</item>
-        <item>Dell</item>
-        <item>HP</item>
-        <item>Asus</item>
-        <item>Acer</item>
-    </string-array>
-
-    <string name="title_activity_landing_page">landing_page</string>
     <string name="title_activity_maps">Map</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="title_activity_sales_stock_nav">SalesStockNav</string>
-    <string name="title_activity_sales_stock_nav1">SalesStockNav1</string>
-    <string name="title_activity_map">MapActivity</string>
-    <string name="title_activity_maps1">Map</string>
-    <string name="title_activity_maps2">Map</string>
-    <string name="title_activity_tabbedactivity">tabbedactivity</string>
     <string name="title_activity_new_sales">NewSales</string>
+    <string name="title_activity_verify_email">VerifyEmail</string>
 </resources>

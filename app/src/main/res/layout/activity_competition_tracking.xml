@@ -23,7 +23,7 @@
             android:background="?attr/colorPrimary"
             android:elevation="1dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,47 +32,84 @@
             app:titleTextColor="#FFFF"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1" />
+            tools:layout_constraintTop_creator="1"
+            android:layout_marginTop="8dp" />
 
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Items"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ct_toolbar" />
 
         <Spinner
             android:id="@+id/spinner_item"
             android:layout_width="0dp"
             android:layout_height="35dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@android:drawable/spinner_dropdown_background"
             android:gravity="center_vertical"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ct_toolbar"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1"
-            tools:layout_constraintTop_creator="1" />
+            tools:layout_constraintTop_creator="1"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="70dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Brands"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/spinner_model"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.51" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Models"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/textView26"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.535" />
 
         <Spinner
-            android:id="@+id/spinner_brands"
+            android:id="@+id/spinner_model"
             android:layout_width="0dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
             android:background="@android:drawable/spinner_dropdown_background"
-            android:gravity="center_vertical"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_item"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_conversion_absoluteHeight="28dp"
-            tools:layout_conversion_absoluteWidth="384dp"
-            tools:layout_conversion_absoluteX="0dp"
-            tools:layout_conversion_absoluteY="99dp" />
+            android:layout_marginLeft="70dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_brands"
+            app:layout_constraintHorizontal_bias="0.0" />
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardView2"
@@ -86,7 +123,9 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView26"
             tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintRight_creator="1">
+            tools:layout_constraintRight_creator="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
 
             <LinearLayout
                 android:id="@+id/container"
@@ -118,6 +157,7 @@
                             android:elevation="1dp"
                             android:gravity="center"
                             android:text="1"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                         <TextView
@@ -130,6 +170,7 @@
                             android:elevation="1dp"
                             android:gravity="center"
                             android:text="2"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                         <TextView
@@ -142,6 +183,7 @@
                             android:elevation="1dp"
                             android:gravity="center"
                             android:text="3"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                         <TextView
@@ -154,6 +196,7 @@
                             android:elevation="1dp"
                             android:gravity="center"
                             android:text="4"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                         <TextView
@@ -166,6 +209,7 @@
                             android:elevation="1dp"
                             android:gravity="center"
                             android:text="5"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                         <TextView
@@ -178,6 +222,7 @@
                             android:elevation="1dp"
                             android:gravity="center"
                             android:text="N/A"
+                            android:textColor="@color/black"
                             android:textSize="16sp" />
 
                     </LinearLayout>
@@ -205,6 +250,7 @@
                                 android:elevation="0dp"
                                 android:gravity="center"
                                 android:text="Display Area"
+                                android:textColor="@color/black"
                                 android:textSize="16sp"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/spinner_brands" />
@@ -305,6 +351,7 @@
                                 android:elevation="0dp"
                                 android:gravity="center"
                                 android:text="Display Location"
+                                android:textColor="@color/black"
                                 android:textSize="16sp"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/textView21" />
@@ -407,6 +454,7 @@
                                 android:elevation="0dp"
                                 android:gravity="center"
                                 android:text="Brand Board"
+                                android:textColor="@color/black"
                                 android:textSize="16sp"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
@@ -501,6 +549,7 @@
             android:id="@+id/textView22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
@@ -508,11 +557,12 @@
             android:elevation="1dp"
             android:text="*-Remarks-*"
             android:textAppearance="@android:style/TextAppearance.Material.Large"
+            android:textColor="@color/black"
             android:textSize="20sp"
+            app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2"
-            app:layout_constraintHorizontal_bias="0.517" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
 
         <EditText
@@ -531,6 +581,7 @@
             android:gravity="top"
             android:hint="Enter Your Comments Here"
             android:inputType="textMultiLine"
+            android:textColor="@color/black"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -553,22 +604,39 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/editText6" />
+            app:layout_constraintTop_toBottomOf="@+id/editText6"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <TextView
             android:id="@+id/textView26"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="*-Input Form-*"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_brands"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="*-Input Form-*"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintHorizontal_bias="0.502" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_model" />
+
+        <Spinner
+            android:id="@+id/spinner_brands"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:drawable/spinner_dropdown_background"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_item" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

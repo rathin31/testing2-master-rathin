@@ -30,7 +30,7 @@
             android:name=".tabbed_attendance$tabbed_activity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".tabbed_attendance"
             android:label="@string/title_activity_attendance_tabbed"
@@ -87,6 +87,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SaleStock" />
+        <activity android:name=".LatLong" />
+        <activity
+            android:name=".VerifyEmail"
+            android:label="@string/title_activity_verify_email"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

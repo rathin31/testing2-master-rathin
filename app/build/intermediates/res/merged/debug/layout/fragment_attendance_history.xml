@@ -29,29 +29,25 @@
             app:disabledDayBackgroundColor="@color/tw__solid_white"
             app:disabledDayTextColor="@color/tw__solid_white"></com.stacktips.view.CustomCalendarView>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp">
 
-            <TextView
-                android:id="@+id/tv_attendance1"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/wrapper_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="check1" />
+                android:background="@color/tw__solid_white"
+                android:elevation="5dp"
+                android:isScrollContainer="false"
+                android:orientation="vertical"
+                android:paddingLeft="5dp"
+                android:paddingStart="5dp">
 
-            <TextView
-                android:id="@+id/tv_attendance2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="check2" />
-
-            <TextView
-                android:id="@+id/tv_attendance3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="check3" />
-        </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 

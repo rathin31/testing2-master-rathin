@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_chooser_list_item.xml",
-        "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\layout\\mr_chooser_list_item.xml"
-    },
-    {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cast_help_text.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\f673d06a7115a548556597bad17054fee0b7fdf9\\output\\res\\layout\\cast_help_text.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_chooser_list_item.xml",
+        "source": "C:\\Users\\HP\\.android\\build-cache\\659c0c0f5d79ae9b008edb1ea95acda0ab6184a1\\output\\res\\layout\\mr_chooser_list_item.xml"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
@@ -34,6 +34,10 @@
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\61405fb06f6485ff57fc94e3316fcb7355e27e41\\output\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_lat_long.xml",
+        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\layout\\activity_lat_long.xml"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cast_tracks_chooser_dialog_layout.xml",
@@ -124,20 +128,16 @@
         "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\layout\\activity_permission.xml"
     },
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_calendar_title_layout.xml",
-        "source": "C:\\Users\\HP\\.android\\build-cache\\8a45149242d4f7cea24754493468d0c7fe4c2283\\output\\res\\layout\\custom_calendar_title_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_competition_tracking.xml",
         "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\layout\\activity_competition_tracking.xml"
     },
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
-        "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_calendar_title_layout.xml",
+        "source": "C:\\Users\\HP\\.android\\build-cache\\8a45149242d4f7cea24754493468d0c7fe4c2283\\output\\res\\layout\\custom_calendar_title_layout.xml"
     },
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_new_sales.xml",
-        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\layout\\content_new_sales.xml"
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_calendar_layout.xml",
@@ -170,6 +170,10 @@
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_verify_email.xml",
+        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\layout\\activity_verify_email.xml"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
@@ -218,10 +222,6 @@
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\61405fb06f6485ff57fc94e3316fcb7355e27e41\\output\\res\\layout\\design_navigation_menu.xml"
-    },
-    {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nav_header_sales_stock_nav.xml",
-        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\layout\\nav_header_sales_stock_nav.xml"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_item_powered_by_google.xml",
@@ -308,10 +308,6 @@
         "source": "C:\\Users\\HP\\.android\\build-cache\\61405fb06f6485ff57fc94e3316fcb7355e27e41\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
     },
     {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_new_sales.xml",
-        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\layout\\activity_new_sales.xml"
-    },
-    {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_progress.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\d9d16d4e11b82a7c037ef018a641e1a03453c459\\output\\res\\layout\\place_autocomplete_progress.xml"
     },
@@ -334,10 +330,6 @@
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_calendar_weeks_layout.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\8a45149242d4f7cea24754493468d0c7fe4c2283\\output\\res\\layout\\custom_calendar_weeks_layout.xml"
-    },
-    {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\app_bar_sales_stock_nav.xml",
-        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\layout\\app_bar_sales_stock_nav.xml"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
@@ -374,10 +366,6 @@
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
         "source": "C:\\Users\\HP\\.android\\build-cache\\61405fb06f6485ff57fc94e3316fcb7355e27e41\\output\\res\\layout\\design_navigation_item_separator.xml"
-    },
-    {
-        "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_sales_stock_nav.xml",
-        "source": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\src\\main\\res\\layout\\content_sales_stock_nav.xml"
     },
     {
         "merged": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tw__activity_oauth.xml",
