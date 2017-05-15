@@ -1,95 +1,79 @@
 package com.example.rathin.testing;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.hardware.camera2.CameraAccessException;
+import android.graphics.Matrix;
 import android.net.Uri;
-import android.os.Environment;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
-//import com.google.firebase.auth;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.vision.text.Text;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.google.firebase.auth.FirebaseAuth;
-import com.squareup.picasso.Picasso;
-import com.stacktips.view.CustomCalendarView;
-import com.stacktips.view.DayDecorator;
-import com.stacktips.view.DayView;
-import com.stacktips.view.utils.CalendarUtils;
-import com.twitter.sdk.android.core.models.Card;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
-import java.nio.BufferUnderflowException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.Map;
 
-import static android.R.attr.data;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
-import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
-import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
 
-public class fragment_attendance_take extends android.support.v4.app.Fragment implements View.OnClickListener {
+public class fragment_attendance_take extends android.support.v4.app.Fragment implements View.OnClickListener, ValueEventListener {
 
-    private String selectedImagePath;
-    private static final String URI = "uri";
-    private Button btCamera,btUpload, btCancel;
-    private ImageView mImageView;
-    public CardView cv;
-    public LinearLayout mLayout;
-    Uri uri;
-    private FirebaseAuth firebaseAuth;
-    private StorageReference storage;
+    Button btCamera,btUpload, btCancel;
+    ImageView mImageView;
+    CardView cv;
+    String selectedImagePath;
+    LinearLayout mLayout;
+    ProgressDialog progressDialog;
+    int count=1;
+
+    FirebaseAuth firebaseAuth;
+    DatabaseReference mFirebaseDatabase,mTimeRef;
+    StorageReference storage;
+
     static final int CAM_REQUEST = 1;
     private static final int CAMERA_REQUEST_CODE = 1;
-    private ProgressDialog progressDialog;
-
+    private static final String URI = "uri";
     public String path = "sdcard/camera_app/";
     public String filename = "cam_image.jpg";
     public Bitmap bitmap;
     public byte[] bytedata;
-    int count=1;
+    Map<String,Object> map;
+    long serverTime;
+    String Email;
 
     SharedPreferences sp;
     SharedPreferences.Editor editor;
-
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -101,81 +85,108 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
         cv = (CardView) rootView.findViewById(R.id.cv_camera);
         mLayout = (LinearLayout) rootView.findViewById(R.id.parent_linear);
         storage = FirebaseStorage.getInstance().getReference();
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference("ImageNames");
+        mTimeRef = FirebaseDatabase.getInstance().getReference("CurrentTime");
+        mTimeRef.child("Time").setValue(ServerValue.TIMESTAMP);
+        firebaseAuth =FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        Email=user.getEmail();
+        //Get time from Firebase server
+        mTimeRef.addValueEventListener(this);
 
         btUpload.setOnClickListener(this);
         btCancel.setOnClickListener(this);
         btCamera.setOnClickListener(this);
         progressDialog = new ProgressDialog(getActivity());
+
         sp = getContext().getSharedPreferences("mypref",MODE_PRIVATE);
         editor= sp.edit();
+
         return rootView;
     }
 
     public void onClick(View v) {
-        if (v == btCamera) {
-            if(sp.getBoolean("camera_enabled",true)) {
-                Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                File file = getFile();
-                //FileProvider.getUriForFile(getActivity(), getActivity().getApplicationContext().getPackageName() + ".provider", file);
-                try {
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                        camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getActivity(), "com.example.rathin.testing.fileprovider", file));
-                    } else {
-                        camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-                    }
+         if (v == btCamera) {
+             if(sp.getBoolean("camera_enabled",true)) {
+                 Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                 File file = getFile();
+                 //FileProvider.getUriForFile(getActivity(), getActivity().getApplicationContext().getPackageName() + ".provider", file);
+                 try {
+                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                         camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getActivity(), "com.example.rathin.testing.fileprovider", file));
+                     } else {
+                         camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+                     }
 
-                    startActivityForResult(camera_intent, CAM_REQUEST);
-                } catch (Exception e) {
-                    Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
-                }
-            }else{
-                Toast.makeText(getActivity(),"3 images of the day have already been taken. Thank you!",Toast.LENGTH_LONG).show();
-            }
-        }else if (v==btUpload){
-            progressDialog.setMessage("Image is Uploading");
-            progressDialog.show();
-            firebaseAuth =FirebaseAuth.getInstance();
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            String Email=user.getEmail();
-            String timeStamp = new SimpleDateFormat("/MM-yy/dd_HH:mm:ss_a").format(new     Date());
-            String imageFileName = Email + timeStamp ;
-            StorageReference mountainsRef = storage.child(imageFileName+".jpg");
-            UploadTask uploadTask = mountainsRef.putBytes(bytedata);
-            uploadTask.addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                }
-            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                    progressDialog.dismiss();
-                    Toast.makeText(getActivity(), "Your attendance is taken..", Toast.LENGTH_SHORT).show();
-                    if(count<3) {
-                        count++;
-                        editor.putInt("ImageCount", count);
-                        editor.commit();
-                    }else{
-                        editor.putBoolean("camera_enabled",false);
-                        editor.commit();
-                        Toast.makeText(getActivity(),"3 images taken",Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-            Activity act = (Activity)getContext();
-            act.runOnUiThread(new Runnable(){
-                @Override
-                public void run() {
-                    mLayout.setVisibility(View.INVISIBLE);
-                    cv.setVisibility(View.VISIBLE);
-                }
-            });
+                     startActivityForResult(camera_intent, CAM_REQUEST);
+                 } catch (Exception e) {
+                     Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
+                 }
+             }else{
+                 Toast.makeText(getActivity(),"3 images of the day have already been taken. Thank you!",Toast.LENGTH_LONG).show();
+             }
+         }else if (v==btUpload){
+             progressDialog.setMessage("Image is Uploading");
+             progressDialog.show();
+
+             Log.v("Outside onDataChange",new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(serverTime));
+             String timeStamp = new SimpleDateFormat("/MM-yy/dd/HH:mm:ss").format(new Date(serverTime));
+             Log.v("Before Upload",timeStamp);
+             String imageFileName = Email + timeStamp ;
+             imageFileName = imageFileName.replaceAll("[_$.,]","");
+             mFirebaseDatabase.child(imageFileName).setValue(true);
+             StorageReference mountainsRef = storage.child(imageFileName+".jpg");
+             UploadTask uploadTask = mountainsRef.putBytes(bytedata);
+             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                     @Override
+                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                     progressDialog.dismiss();
+                     Toast.makeText(getActivity(), "Your attendance is taken..", Toast.LENGTH_SHORT).show();
+                     if(count<3) {
+                         Log.v("Image No", ""+count);
+                         count++;
+                         editor.putInt("ImageCount", count);
+                         editor.commit();
+                     }else{
+                         Log.v("Count Status","More than 3");
+                         Calendar dayNext = Calendar.getInstance();
+                         dayNext.add(Calendar.DAY_OF_MONTH,1);
+                         dayNext.set(Calendar.HOUR_OF_DAY,0);
+                         dayNext.set(Calendar.MINUTE,0);
+                         dayNext.set(Calendar.SECOND,0);
+                         dayNext.set(Calendar.MILLISECOND,0);
+                         String t1 = new SimpleDateFormat("dd-MM-yy HH:mm:ss").format(dayNext.getTime());
+                         Log.v("t1",t1);
+                         String t2 =  new SimpleDateFormat("dd-MM-yy HH:mm:ss").format(new Date(serverTime));
+                         Log.v("t2",t2);
+                         long timeToMidnight = dayNext.getTimeInMillis() - serverTime;
+                         String tillMidnight = new SimpleDateFormat("HH:mm:ss").format(new Date(timeToMidnight));
+                         Log.v("Time To Midnight",tillMidnight);
+                         editor.putBoolean("camera_enabled",false);
+                         editor.commit();
+                         Toast.makeText(getActivity(),"3 images taken",Toast.LENGTH_SHORT).show();
+                     }
+                 }
+             }).addOnFailureListener(new OnFailureListener() {
+                 @Override
+                 public void onFailure(@NonNull Exception exception) {
+                 }
+             });
+             Activity act = (Activity)getContext();
+             act.runOnUiThread(new Runnable(){
+                 @Override
+                 public void run() {
+                         mLayout.setVisibility(View.GONE);
+                         cv.setVisibility(View.VISIBLE);
+                     }
+             });
 
 
-        }else if(v==btCancel){
-            mLayout.setVisibility(View.INVISIBLE);
-            cv.setVisibility(View.VISIBLE);
-        }
+         }else if(v==btCancel){
+             mLayout.setVisibility(View.GONE);
+             cv.setVisibility(View.VISIBLE);
+         }
 
     }
 
@@ -188,16 +199,22 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
                 Log.d(URI, "camera1");
                 String path = selectedImagePath+"/" + filename;
                 Log.d(URI,path + " URI");
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                bitmap = BitmapFactory.decodeFile(path, options);
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                try{
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    bitmap = BitmapFactory.decodeFile(path, options);
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG,12, baos);
+                    bytedata = baos.toByteArray();
 
+                    Matrix matrix = new Matrix();
+                    matrix.postRotate(270);
+                    Bitmap newbitmap = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
 
-                bitmap.compress(Bitmap.CompressFormat.JPEG,12, baos);
-                bytedata = baos.toByteArray();
-
-                mImageView.setImageBitmap(bitmap);
-                cv.setVisibility(View.INVISIBLE);
+                    mImageView.setImageBitmap(newbitmap);
+                }catch (Exception e){
+                    Toast.makeText(getActivity(),"Oops!! Something went Wrong. Please Try again.",Toast.LENGTH_SHORT);
+                }
+                cv.setVisibility(View.GONE);
                 mLayout.setVisibility(View.VISIBLE);
 
 
@@ -242,5 +259,16 @@ public class fragment_attendance_take extends android.support.v4.app.Fragment im
         File image_file = new File(imagePath, "cam_image.jpg" + ts);
         filename = "cam_image.jpg" + ts;
         return image_file;
+    }
+
+    @Override
+    public void onDataChange(DataSnapshot dataSnapshot) {
+        map = (Map<String,Object>)dataSnapshot.getValue();
+        serverTime = (long) map.get("Time");
+        Log.v("Inside onDataChange",new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(serverTime));
+    }
+    @Override
+    public void onCancelled(DatabaseError databaseError) {
+
     }
 }

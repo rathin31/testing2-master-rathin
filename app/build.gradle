@@ -74,6 +74,7 @@ dependencies {
     compile 'com.firebase:firebase-client-android:2.4.0'
     compile 'com.google.android.gms:play-services-maps:10.2.0'
     compile 'com.github.npanigrahy:Custom-Calendar-View:v1.1'
+    compile 'commons-net:commons-net:3.6'
     testCompile 'junit:junit:4.12'
 }
 

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\testing2-master-rathin\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+        "outputFile": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 163
                 },
                 "from": {
-                    "file": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\d01886c364f8e0b6b5b3b9f282e992a4084403d5\\output\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "file": "C:\\Users\\HP\\.android\\build-cache\\d49ba5f67af8dd9e36b2c57d1959e175b84e311a\\output\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

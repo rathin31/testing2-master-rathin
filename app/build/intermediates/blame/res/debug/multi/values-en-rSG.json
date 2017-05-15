@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\testing2-master-rathin\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rSG\\values-en-rSG.xml",
+        "outputFile": "C:\\Users\\HP\\StudioProjects\\FFMS-master-rathin\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rSG\\values-en-rSG.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "C:\\Users\\Nisarg k Patel\\.android\\build-cache\\d0bb0a1a40e0745e7cd8cf67eb60eb5565e7734a\\output\\res\\values-en-rSG\\values.xml",
+                    "file": "C:\\Users\\HP\\.android\\build-cache\\09baac1fb7b3b536d2a43575f6e133815fddf73f\\output\\res\\values-en-rSG\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,
